@@ -392,3 +392,47 @@ footer p {
     }
 
 }
+
+.since {
+    margin-top: 5px;
+    font-size: 16px !important;
+    opacity: 0.8;
+}
+
+.relationship-counter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    margin: 30px 0;
+}
+
+.counter-box {
+    background-color: rgba(255, 255, 255, 0.8);
+
+    width: 110px;
+    padding: 15px 10px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.counter-box span {
+    display: block;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #d6336c;
+}
+
+.counter-box small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+    color: #666;
+}

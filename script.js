@@ -70,3 +70,52 @@ loveButton.addEventListener("click", function() {
     }
 
 });
+
+const anniversaryDate = new Date(2025, 9, 5, 0, 0, 0);
+
+
+function updateRelationshipTime() {
+
+    const now = new Date();
+
+    const difference = now - anniversaryDate;
+
+
+    // Convert milliseconds into useful units
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+
+    const hours = Math.floor(
+        (totalSeconds % 86400) / 3600
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds = totalSeconds % 60;
+
+
+    // Put the numbers onto the website
+
+    document.getElementById("daysTogether").textContent = days;
+
+    document.getElementById("hoursTogether").textContent = hours;
+
+    document.getElementById("minutesTogether").textContent = minutes;
+
+    document.getElementById("secondsTogether").textContent = seconds;
+
+}
+
+
+// Run the function immediately
+
+updateRelationshipTime();
+
+
+// Update every second
+
+setInterval(updateRelationshipTime, 1000);
