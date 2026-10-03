@@ -1367,3 +1367,137 @@ section h2 {
         font-size: 13px;
     }
 }
+
+/* ==================== */
+/* SUBTLE BACKGROUND EFFECTS */
+/* ==================== */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Soft blurred lavender glows */
+
+.bg-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(180, 145, 220, 0.10);
+    filter: blur(70px);
+    animation: softFloat 12s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+    top: 8%;
+    left: -120px;
+}
+
+.glow-2 {
+    top: 48%;
+    right: -130px;
+    width: 400px;
+    height: 400px;
+    animation-delay: -4s;
+}
+
+.glow-3 {
+    bottom: -150px;
+    left: 35%;
+    width: 320px;
+    height: 320px;
+    animation-delay: -8s;
+}
+
+@keyframes softFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -25px) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+}
+
+/* Tiny floating particles */
+
+.bg-particle {
+    position: absolute;
+    color: rgba(155, 114, 207, 0.35);
+    font-size: 18px;
+    animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particle-1 {
+    top: 18%;
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    top: 32%;
+    left: 82%;
+    font-size: 25px;
+    animation-delay: -2s;
+}
+
+.particle-3 {
+    top: 65%;
+    left: 8%;
+    font-size: 15px;
+    animation-delay: -4s;
+}
+
+.particle-4 {
+    top: 78%;
+    left: 88%;
+    font-size: 24px;
+    animation-delay: -6s;
+}
+
+.particle-5 {
+    top: 12%;
+    left: 65%;
+    font-size: 14px;
+    animation-delay: -3s;
+}
+
+.particle-6 {
+    top: 52%;
+    left: 92%;
+    font-size: 16px;
+    animation-delay: -5s;
+}
+
+@keyframes particleFloat {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateY(-18px) rotate(15deg);
+    }
+}
+
+/* Keep website content above the background effects */
+
+.hero,
+.letter,
+.story,
+.memories,
+.reasons,
+.love-counter {
+    position: relative;
+    z-index: 1;
+}
