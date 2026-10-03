@@ -307,25 +307,25 @@ const songs = [
     {
         title: "Aphrodite",
         artist: "The Ridleys",
-        file: "aphrodite.mp3"
+        file: "music/aphrodite.mp3"
     },
 
     {
         title: "Mahal",
         artist: "Dilaw",
-        file: "mahal.mp3"
+        file: "music/mahal.mp3"
     },
 
     {
         title: "Dahan",
         artist: "Over October",
-        file: "dahan.mp3"
+        file: "music/dahan.mp3"
     },
 
     {
         title: "Yiee",
         artist: "Dilaw",
-        file: "yiee.mp3"
+        file: "music/yiee.mp3"
     }
 
 ];
