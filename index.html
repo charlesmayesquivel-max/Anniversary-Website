@@ -12,10 +12,177 @@
     <!-- Connect CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
 </head>
 
 
 <body>
+    
+<!-- ==================== -->
+<!-- FLOATING MUSIC PLAYER -->
+<!-- ==================== -->
+
+<div class="music-player" id="musicPlayer">
+
+```
+<!-- Mini Player -->
+<button class="music-toggle" id="musicToggle" aria-label="Open music player">
+    <span class="music-icon">🎵</span>
+    <span class="music-mini-text">Our Song</span>
+</button>
+
+
+<!-- Expanded Player -->
+<div class="music-panel" id="musicPanel">
+
+    <div class="music-header">
+
+        <div>
+            <span class="music-label">🎵 OUR LITTLE PLAYLIST</span>
+
+            <h3 id="currentSong">
+                Aphrodite
+            </h3>
+
+            <p id="currentArtist">
+                The Ridleys
+            </p>
+        </div>
+
+        <button
+            class="music-close"
+            id="musicClose"
+            aria-label="Close music player">
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- Progress -->
+
+    <div class="music-progress-container">
+
+        <span id="currentTime">0:00</span>
+
+        <input
+            type="range"
+            id="musicProgress"
+            min="0"
+            max="100"
+            value="0">
+
+        <span id="duration">0:00</span>
+
+    </div>
+
+
+    <!-- Controls -->
+
+    <div class="music-controls">
+
+        <button
+            id="previousSong"
+            aria-label="Previous song">
+            ⏮
+        </button>
+
+        <button
+            id="playPause"
+            class="play-button"
+            aria-label="Play music">
+            ▶
+        </button>
+
+        <button
+            id="nextSong"
+            aria-label="Next song">
+            ⏭
+        </button>
+
+    </div>
+
+
+    <!-- Playlist -->
+
+    <div class="playlist">
+
+        <button
+            class="playlist-song active"
+            data-song="0">
+
+            <span class="song-number">01</span>
+
+            <span class="song-info">
+                <strong>Aphrodite</strong>
+                <small>The Ridleys</small>
+            </span>
+
+            <span class="song-play">▶</span>
+
+        </button>
+
+
+        <button
+            class="playlist-song"
+            data-song="1">
+
+            <span class="song-number">02</span>
+
+            <span class="song-info">
+                <strong>Mahal</strong>
+                <small>Dilaw</small>
+            </span>
+
+            <span class="song-play">▶</span>
+
+        </button>
+
+
+        <button
+            class="playlist-song"
+            data-song="2">
+
+            <span class="song-number">03</span>
+
+            <span class="song-info">
+                <strong>Dahan</strong>
+                <small>Over October</small>
+            </span>
+
+            <span class="song-play">▶</span>
+
+        </button>
+
+
+        <button
+            class="playlist-song"
+            data-song="3">
+
+            <span class="song-number">04</span>
+
+            <span class="song-info">
+                <strong>Yiee</strong>
+                <small>Dilaw</small>
+            </span>
+
+            <span class="song-play">▶</span>
+
+        </button>
+
+    </div>
+
+
+    <!-- Hidden Audio Element -->
+
+    <audio id="audioPlayer"></audio>
+
+</div>
+```
+
+</div>
+
 
     <!-- ==================== -->
     <!-- HERO SECTION -->
@@ -23,14 +190,14 @@
 
     <section class="hero">
 
-        <div class="heart">❤️</div>
+        <div class="heart">💜</div>
 
-        <h1>Happy Anniversary, Niña </h1>
+        <h1>Happy Anniversary, Pagmamahal </h1>
 
-        <p>To the most special person in my life, i love you, Pagmamahal!</p>
+        <p>To the most special person in my life, I love you, Niña!</p>
 
         <p class="since">
-        Together since October 5, 2025
+        Together since October 5, 2025 — and counting
         </p>
 
     <div class="relationship-counter">
@@ -58,7 +225,7 @@
     </div>
 
         <button id="openButton">
-            Open My Heart 💌
+            Open My Heart 💜
         </button>
 
     </section>
@@ -70,23 +237,53 @@
 
     <section class="letter">
 
-        <h2>A Letter For You 💌</h2>
+        <h2>A Letter For You</h2>
 
-        <div class="letter-box">
+        <p class="section-intro">
+        I have something I want to tell you.
+    </p>
+
+    <div class="envelope-container">
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-top"></div>
+
+            <div class="envelope-body">
+
+                <div class="letter-preview">
+                    💜
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="letterButton">
+            Open My Letter 💌
+        </button>
+
+    </div>
+
+    <!-- THE ACTUAL LETTER -->
+
+    <div class="real-letter" id="realLetter">
 
             <p>
-                My love,
+                My Pagmamahal,
             </p>
 
             <p>
-                I made this little website for you because
-                I wanted to give you something that came
-                from me.
+                Starting from the day we met, I instantly fell in love with you. 
+                No joke, mamatay man ako. I really thought na wala akong chance sa’yo,
+                pero wow, tingnan mo naman—isang taon na tayo.
             </p>
 
             <p>
-                Every moment with you is something that
-                I will always treasure.
+                Simple lang naman ang wish ko, and that is for us to succeed in life,
+                to make you happy, and to make you feel loved habang magkasama tayo.
+                Thank you for understanding me, for caring for me, for supporting me,
+                and for the never-ending love you show me.
             </p>
 
             <p>
@@ -94,161 +291,442 @@
             </p>
 
             <p>
-                Happy Anniversary. ❤️
+                Happy Anniversary and I love you so much!
+            </p>
+
+            <p class="signature">
+            With all my love,<br>
+            Charles ❤️
             </p>
 
         </div>
 
     </section>
 
+<!-- ==================== -->
+<!-- OUR STORY -->
+<!-- ==================== -->
+
+<section class="story">
+
+    <h2>Our Story</h2>
+
+    <p class="section-intro">
+        From one special day to all the days that came after,
+        this is a little piece of our story.
+    </p>
+
+
+    <div class="timeline">
+
+
+        <!-- EVENT 1 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                💜
+            </div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    October 5, 2025
+                </span>
+
+                <h3>The Day It All Changed</h3>
+
+                <p>
+                    The day that changed everything.
+                    The day we started our journey
+                    together at araw na nasabi kong bet na bet mo talaga ako, eme.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVENT 2 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                ✨
+            </div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    The Beginning of Us
+                </span>
+
+                <h3>A New Chapter</h3>
+
+                <p>
+                    Two people starting something new,
+                    not knowing yet how many beautiful
+                    memories were waiting for us.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVENT 3 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                🥰
+            </div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    Getting to Know You
+                </span>
+
+                <h3>The Little Things</h3>
+
+                <p>
+                    Easiest part of our story, maybe because I really love you.
+                    But also the hardest, because sometimes, It's the reason I hurt you.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVENT 4 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                🌷
+            </div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    Growing Together
+                </span>
+
+                <h3>More Laughs, More Memories</h3>
+
+                <p>
+                    Every conversation, every laugh,
+                    and every little moment slowly
+                    became part of our story.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVENT 5 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                💜
+            </div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    Today
+                </span>
+
+                <h3>Still Writing Our Story</h3>
+
+                <p>
+                    We've already made so many memories,
+                    but I know this is only the beginning, my pagmamahal!
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
 
     <!-- ==================== -->
     <!-- MEMORIES -->
     <!-- ==================== -->
 
-    <section class="memories">
+<section class="memories">
 
-        <h2>Our Memories 📸</h2>
+    <h2>Our Memories 📸</h2>
 
-        <div class="memory-container">
+    <p class="section-intro">
+        A few moments that I will always keep close to my heart. 💜
+    </p>
 
-            <div class="memory">
+    <div class="memory-container">
 
-                <div class="photo">
-                    📷
-                </div>
+        <!-- Memory 1 -->
+        <div class="memory">
 
-                <h3>Our First Memory</h3>
+            <img src="images/photo1.jpg" alt="Our first memory">
 
-                <p>
-                    The beginning of our story.
-                </p>
+            <h3>Our Beginning</h3>
 
-            </div>
+            <p>
+                This is one of the moments that
+                started our beautiful story.
+            </p>
 
-
-            <div class="memory">
-
-                <div class="photo">
-                    📷
-                </div>
-
-                <h3>One of My Favorites</h3>
-
-                <p>
-                    A moment I will never forget.
-                </p>
-
-            </div>
+        </div>
 
 
-            <div class="memory">
+        <!-- Memory 2 -->
+        <div class="memory">
 
-                <div class="photo">
-                    📷
-                </div>
+            <img src="images/photo2.jpg" alt="Our favorite memory">
 
-                <h3>Another Beautiful Memory</h3>
+            <h3>One of My Favorites</h3>
 
-                <p>
-                    Another day that became special
-                    because I was with you.
-                </p>
+            <p>
+                A simple moment, but one that
+                became special because I was with you.
+            </p>
+
+        </div>
+
+
+        <!-- Memory 3 -->
+        <div class="memory">
+
+            <img src="images/photo3.jpg" alt="Another memory together">
+
+            <h3>Our First Date</h3>
+
+            <p>
+                Another little piece of our story
+                that I never want to forget.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+ <!-- ==================== -->
+<!-- REASONS I LOVE YOU -->
+<!-- ==================== -->
+
+<section class="reasons">
+
+    <h2>Reasons Why I Love You</h2>
+
+    <p class="section-intro">
+        I could probably write a thousand reasons,
+        but here are a few of them.
+    </p>
+
+    <div class="reason-list">
+
+        <!-- REASON 1 -->
+        <div class="reason-card" onclick="showReason(1)">
+
+            <span class="reason-number">01</span>
+
+            <h3>Your Smile</h3>
+
+            <p class="click-text">Click to reveal</p>
+
+            <div class="reason-message" id="reason1">
+
+                Your smile is one of those little things
+                that can instantly make my day better.
 
             </div>
 
         </div>
 
-    </section>
 
+        <!-- REASON 2 -->
+        <div class="reason-card" onclick="showReason(2)">
 
-    <!-- ==================== -->
-    <!-- REASONS -->
-    <!-- ==================== -->
+            <span class="reason-number">02</span>
 
-    <section class="reasons">
+            <h3>The Way You Laugh</h3>
 
-        <h2>Reasons Why I Love You ❤️</h2>
+            <p class="click-text">Click to reveal</p>
 
-        <div class="reason-list">
+            <div class="reason-message" id="reason2">
 
-            <div class="reason">
-                <span>01</span>
-                <p>Your smile</p>
-            </div>
+                I love hearing you laugh.
+                It is honestly one of my favorite sounds.
+                I love it when I'm seeing your ngala-ngala.
 
-            <div class="reason">
-                <span>02</span>
-                <p>Your laugh</p>
-            </div>
-
-            <div class="reason">
-                <span>03</span>
-                <p>The way you care about me</p>
-            </div>
-
-            <div class="reason">
-                <span>04</span>
-                <p>You make ordinary days special</p>
-            </div>
-
-            <div class="reason">
-                <span>05</span>
-                <p>Simply being you</p>
             </div>
 
         </div>
 
-    </section>
+
+        <!-- REASON 3 -->
+        <div class="reason-card" onclick="showReason(3)">
+
+            <span class="reason-number">03</span>
+
+            <h3>The Way You Care</h3>
+
+            <p class="click-text">Click to reveal</p>
+
+            <div class="reason-message" id="reason3">
+
+                You have a way of making people around you
+                feel loved, appreciated, and cared for.
+
+            </div>
+
+        </div>
 
 
-    <!-- ==================== -->
-    <!-- LOVE COUNTER -->
-    <!-- ==================== -->
+        <!-- REASON 4 -->
+        <div class="reason-card" onclick="showReason(4)">
 
-    <section class="love-counter">
+            <span class="reason-number">04</span>
 
-        <h2>How Much Do I Love You?</h2>
+            <h3>Every Little Things You Do</h3>
 
-        <p>
-            Click the heart and find out ❤️
+            <p class="click-text">Click to reveal</p>
+
+            <div class="reason-message" id="reason4">
+
+                Even an ordinary day can become special
+                just because I get to spend it with you.
+
+            </div>
+
+        </div>
+
+
+        <!-- REASON 5 -->
+        <div class="reason-card" onclick="showReason(5)">
+
+            <span class="reason-number">05</span>
+
+            <h3>You're You</h3>
+
+            <p class="click-text">Click to reveal</p>
+
+            <div class="reason-message" id="reason5">
+
+                And honestly, the biggest reason is simply
+                because you are you. I wouldn't change that.
+                Just you, only you, and forever you!
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================== -->
+<!-- FINAL LOVE SURPRISE -->
+<!-- ==================== -->
+
+<section class="love-counter">
+
+    <div class="final-love-content">
+
+        <h2>How Much Do I Love You? </h2>
+
+        <p class="love-intro">
+            I don't think any number could really measure it...
         </p>
+
+
+        <!-- LOVE METER -->
+
+        <div class="love-meter">
+
+            <div class="love-bar">
+                <div id="loveFill"></div>
+            </div>
+
+            <div class="love-percent">
+                <span id="lovePercent">0</span>%
+            </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
 
         <button id="loveButton">
-            ❤️ Click Me
+            Add More Love 
         </button>
 
-        <div id="counter">
-            0
-        </div>
+
+        <!-- NORMAL MESSAGE -->
 
         <p id="message">
-            I love you...
+            Click the button and find out...
         </p>
 
-    </section>
 
+        <!-- FINAL SURPRISE -->
 
-    <!-- ==================== -->
-    <!-- FOOTER -->
-    <!-- ==================== -->
+        <div class="final-surprise" id="finalSurprise">
 
-    <footer>
+            <div class="big-heart">
+                💜
+            </div>
 
-        <p>
-            Made with ❤️ and a little bit of code.
-        </p>
+            <h3>There's No Limit 💜</h3>
 
-        <p>
-            For my favorite person.
-        </p>
+            <p>
+                100% isn't nearly enough to measure
+                how much I love you.
+            </p>
 
-    </footer>
+            <p>
+                So maybe I shouldn't have put a limit
+                on the meter in the first place.
+            </p>
 
+            <div class="final-divider">
+                ✦ ✦ ✦
+            </div>
 
-    <!-- Connect JavaScript -->
-    <script src="script.js"></script>
+            <h3>Happy Anniversary, Pagmamahal! </h3>
 
-</body>
+            <p>
+                Thank you for being one of the most
+                beautiful parts of my life.
+            </p>
 
-</html>
+            <p>
+                We've already made so many memories, I am also grateful din na kahit 'di lang puro saya, 
+                na kahit minsan may tampuhan, away, tampo, at selos ay pinipili pa rin natin ang bawat isa.
+                I hope this is only the beginning
+                of everything that's still waiting for us.
+            </p>
+
+            <p class="final-message">
+                I love you, always. 💜
+            </p>
+
+            <p class="final-signature">
+                — Charles
+            </p>
+
+        </div>
+
+    </div>
+
+</section>

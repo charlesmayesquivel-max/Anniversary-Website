@@ -4,7 +4,6 @@
 
 const openButton = document.getElementById("openButton");
 
-
 openButton.addEventListener("click", function() {
 
     document.querySelector(".letter").scrollIntoView({
@@ -14,108 +13,598 @@ openButton.addEventListener("click", function() {
 });
 
 
-
 // ====================
-// LOVE COUNTER
+// FINAL LOVE SURPRISE
 // ====================
 
-const loveButton = document.getElementById("loveButton");
+const loveButton =
+    document.getElementById("loveButton");
 
-const counter = document.getElementById("counter");
+const lovePercent =
+    document.getElementById("lovePercent");
 
-const message = document.getElementById("message");
+const loveFill =
+    document.getElementById("loveFill");
+
+const message =
+    document.getElementById("message");
+
+const finalSurprise =
+    document.getElementById("finalSurprise");
 
 
-let loveCount = 0;
+let loveAmount = 0;
 
 
 loveButton.addEventListener("click", function() {
 
-    loveCount++;
-
-    counter.textContent = loveCount;
+    loveAmount += 10;
 
 
-    // Different messages depending
-    // on how many times she clicks
+    // Keep the meter at 100%
+    if (loveAmount > 100) {
+        loveAmount = 100;
+    }
 
-    if (loveCount === 1) {
 
-        message.textContent = "Just getting started ❤️";
+    // Update percentage
+    lovePercent.textContent = loveAmount;
+
+
+    // Update the purple bar
+    loveFill.style.width = loveAmount + "%";
+
+
+    // Messages while filling
+    if (loveAmount === 10) {
+
+        message.textContent =
+            "Just getting started... 💜";
 
     }
 
-    else if (loveCount === 10) {
+    else if (loveAmount === 30) {
 
-        message.textContent = "I love you more than 10 ❤️";
-
-    }
-
-    else if (loveCount === 25) {
-
-        message.textContent = "25 times? I really love you! 🥰";
+        message.textContent =
+            "There's still so much more love. 🥰";
 
     }
 
-    else if (loveCount === 50) {
+    else if (loveAmount === 50) {
 
-        message.textContent = "Okay... you really like clicking this 😂❤️";
+        message.textContent =
+            "Only halfway? That's definitely not enough. 💜";
 
     }
 
-    else if (loveCount === 100) {
+    else if (loveAmount === 70) {
 
-        message.textContent = "I LOVE YOU INFINITY ❤️∞";
+        message.textContent =
+            "My love for you keeps growing. ✨";
+
+    }
+
+    else if (loveAmount === 90) {
+
+        message.textContent =
+            "Almost there... 💜";
+
+    }
+
+
+    // 100% = reveal the surprise
+    if (loveAmount === 100) {
+
+        message.textContent =
+            "100%... but that's still not enough. 💜";
+
+        loveButton.textContent =
+            "There's No Limit 💜";
+
+        finalSurprise.classList.add("show");
+
+        createHearts();
+
+        finalSurprise.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
     }
 
 });
 
-const anniversaryDate = new Date(2025, 9, 5, 0, 0, 0);
+
+// ====================
+// FLOATING HEARTS
+// ====================
+
+function createHearts() {
+
+    for (let i = 0; i < 25; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.classList.add("floating-heart");
+
+        heart.textContent = "💜";
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+        heart.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
 
 
-function updateRelationshipTime() {
-
-    const now = new Date();
-
-    const difference = now - anniversaryDate;
+        document
+            .querySelector(".love-counter")
+            .appendChild(heart);
 
 
-    // Convert milliseconds into useful units
+        setTimeout(function() {
 
-    const totalSeconds = Math.floor(difference / 1000);
+            heart.remove();
 
-    const days = Math.floor(totalSeconds / 86400);
+        }, 7000);
 
-    const hours = Math.floor(
-        (totalSeconds % 86400) / 3600
-    );
-
-    const minutes = Math.floor(
-        (totalSeconds % 3600) / 60
-    );
-
-    const seconds = totalSeconds % 60;
-
-
-    // Put the numbers onto the website
-
-    document.getElementById("daysTogether").textContent = days;
-
-    document.getElementById("hoursTogether").textContent = hours;
-
-    document.getElementById("minutesTogether").textContent = minutes;
-
-    document.getElementById("secondsTogether").textContent = seconds;
+    }
 
 }
 
 
-// Run the function immediately
+// ====================
+// LOVE LETTER
+// ====================
 
-updateRelationshipTime();
+const letterButton =
+    document.getElementById("letterButton");
+
+const realLetter =
+    document.getElementById("realLetter");
 
 
-// Update every second
+letterButton.addEventListener("click", function() {
 
-setInterval(updateRelationshipTime, 1000);
+    realLetter.classList.add("show");
+
+    letterButton.textContent =
+        "Letter Opened 💜";
+
+    letterButton.disabled = true;
+
+    realLetter.scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+
+// ====================
+// INTERACTIVE REASONS
+// ====================
+
+function showReason(number) {
+
+    const message =
+        document.getElementById("reason" + number);
+
+    const card =
+        message.parentElement;
+
+    card.classList.toggle("open");
+
+}
+
+
+// ====================
+// MUSIC PLAYER
+// ====================
+
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+const musicPanel =
+    document.getElementById("musicPanel");
+
+const musicClose =
+    document.getElementById("musicClose");
+
+const audioPlayer =
+    document.getElementById("audioPlayer");
+
+const playPause =
+    document.getElementById("playPause");
+
+const previousSong =
+    document.getElementById("previousSong");
+
+const nextSong =
+    document.getElementById("nextSong");
+
+const musicProgress =
+    document.getElementById("musicProgress");
+
+const currentTime =
+    document.getElementById("currentTime");
+
+const duration =
+    document.getElementById("duration");
+
+const currentSong =
+    document.getElementById("currentSong");
+
+const currentArtist =
+    document.getElementById("currentArtist");
+
+const playlistSongs =
+    document.querySelectorAll(".playlist-song");
+
+
+// ====================
+// SONG LIST
+// ====================
+
+const songs = [
+
+    {
+        title: "Aphrodite",
+        artist: "The Ridleys",
+        file: "music/aphrodite.mp3"
+    },
+
+    {
+        title: "Mahal",
+        artist: "Dilaw",
+        file: "music/mahal.mp3"
+    },
+
+    {
+        title: "Dahan",
+        artist: "Over October",
+        file: "music/dahan.mp3"
+    },
+
+    {
+        title: "Yiee",
+        artist: "Dilaw",
+        file: "music/yiee.mp3"
+    }
+
+];
+
+
+let currentSongIndex = 0;
+
+
+// ====================
+// FORMAT TIME
+// ====================
+
+function formatTime(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+        return "0:00";
+    }
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const remainingSeconds =
+        Math.floor(seconds % 60)
+            .toString()
+            .padStart(2, "0");
+
+    return minutes + ":" + remainingSeconds;
+
+}
+
+
+// ====================
+// LOAD SONG
+// ====================
+
+function loadSong(index) {
+
+    currentSongIndex = index;
+
+    const song =
+        songs[currentSongIndex];
+
+    currentSong.textContent =
+        song.title;
+
+    currentArtist.textContent =
+        song.artist;
+
+    audioPlayer.src =
+        song.file;
+
+    audioPlayer.load();
+
+
+    // Reset progress
+
+    musicProgress.value = 0;
+
+    currentTime.textContent =
+        "0:00";
+
+    duration.textContent =
+        "0:00";
+
+
+    // Update active song
+
+    playlistSongs.forEach(function(songButton, buttonIndex) {
+
+        songButton.classList.toggle(
+            "active",
+            buttonIndex === currentSongIndex
+        );
+
+    });
+
+}
+
+
+// ====================
+// PLAY SONG
+// ====================
+
+function playSong() {
+
+    const playPromise =
+        audioPlayer.play();
+
+    if (playPromise !== undefined) {
+
+        playPromise
+            .then(function() {
+
+                playPause.textContent = "⏸";
+
+                musicPlayer.classList.add("playing");
+
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Music could not play:",
+                    error
+                );
+
+            });
+
+    }
+
+}
+
+
+// ====================
+// PAUSE SONG
+// ====================
+
+function pauseSong() {
+
+    audioPlayer.pause();
+
+    playPause.textContent = "▶";
+
+    musicPlayer.classList.remove("playing");
+
+}
+
+
+// ====================
+// PLAY / PAUSE
+// ====================
+
+playPause.addEventListener(
+    "click",
+    function() {
+
+        if (audioPlayer.paused) {
+
+            playSong();
+
+        } else {
+
+            pauseSong();
+
+        }
+
+    }
+);
+
+
+// ====================
+// NEXT SONG
+// ====================
+
+function nextTrack() {
+
+    currentSongIndex++;
+
+    if (currentSongIndex >= songs.length) {
+
+        currentSongIndex = 0;
+
+    }
+
+    loadSong(currentSongIndex);
+
+    playSong();
+
+}
+
+
+nextSong.addEventListener(
+    "click",
+    nextTrack
+);
+
+
+// ====================
+// PREVIOUS SONG
+// ====================
+
+previousSong.addEventListener(
+    "click",
+    function() {
+
+        currentSongIndex--;
+
+        if (currentSongIndex < 0) {
+
+            currentSongIndex =
+                songs.length - 1;
+
+        }
+
+        loadSong(currentSongIndex);
+
+        playSong();
+
+    }
+);
+
+
+// ====================
+// SONG FINISHED
+// ====================
+
+audioPlayer.addEventListener(
+    "ended",
+    nextTrack
+);
+
+
+// ====================
+// PROGRESS UPDATE
+// ====================
+
+audioPlayer.addEventListener(
+    "timeupdate",
+    function() {
+
+        if (audioPlayer.duration) {
+
+            musicProgress.value =
+                (audioPlayer.currentTime /
+                audioPlayer.duration) * 100;
+
+        }
+
+        currentTime.textContent =
+            formatTime(
+                audioPlayer.currentTime
+            );
+
+    }
+);
+
+
+// ====================
+// DURATION
+// ====================
+
+audioPlayer.addEventListener(
+    "loadedmetadata",
+    function() {
+
+        duration.textContent =
+            formatTime(
+                audioPlayer.duration
+            );
+
+    }
+);
+
+
+// ====================
+// SEEK
+// ====================
+
+musicProgress.addEventListener(
+    "input",
+    function() {
+
+        if (audioPlayer.duration) {
+
+            audioPlayer.currentTime =
+                (musicProgress.value / 100)
+                * audioPlayer.duration;
+
+        }
+
+    }
+);
+
+
+// ====================
+// SELECT PLAYLIST SONG
+// ====================
+
+playlistSongs.forEach(
+    function(songButton) {
+
+        songButton.addEventListener(
+            "click",
+            function() {
+
+                const selectedSong =
+                    Number(
+                        songButton.dataset.song
+                    );
+
+                loadSong(selectedSong);
+
+                playSong();
+
+            }
+        );
+
+    }
+);
+
+
+// ====================
+// OPEN PLAYER
+// ====================
+
+musicToggle.addEventListener(
+    "click",
+    function() {
+
+        musicPlayer.classList.add("open");
+
+    }
+);
+
+
+// ====================
+// CLOSE PLAYER
+// ====================
+
+musicClose.addEventListener(
+    "click",
+    function() {
+
+        musicPlayer.classList.remove("open");
+
+    }
+);
+
+
+// ====================
+// INITIAL SONG
+// ====================
+
+loadSong(0);
