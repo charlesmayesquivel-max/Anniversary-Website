@@ -1,3 +1,11 @@
+alert("SCRIPT.JS IS WORKING!");
+
+// ====================
+// RELATIONSHIP COUNTER
+// ====================
+
+const startDate = new Date("2025-10-05T00:00:00");
+
 // ====================
 // RELATIONSHIP COUNTER
 // ====================
