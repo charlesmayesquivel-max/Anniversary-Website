@@ -94,53 +94,51 @@ let loveAmount = 0;
 
 loveButton.addEventListener("click", function() {
 
-    loveAmount += 10;
+    loveAmount++;
 
-
-    // Keep the meter at 100%
-    if (loveAmount > 100) {
-        loveAmount = 100;
-    }
-
+    // 30 clicks = 100%
+    const percentage = Math.min(
+        Math.round((loveAmount / 30) * 100),
+        100
+    );
 
     // Update percentage
-    lovePercent.textContent = loveAmount;
-
+    lovePercent.textContent = percentage;
 
     // Update the purple bar
-    loveFill.style.width = loveAmount + "%";
+    loveFill.style.width = percentage + "%";
 
 
     // Messages while filling
-    if (loveAmount === 10) {
+    if (percentage >= 10 && percentage < 30) {
 
         message.textContent =
             "Just getting started... 💜";
 
     }
 
-    else if (loveAmount === 30) {
+    else if (percentage >= 30 && percentage < 50) {
 
         message.textContent =
             "There's still so much more love. 🥰";
 
     }
 
-    else if (loveAmount === 50) {
+    else if (percentage >= 50 && percentage < 70) {
 
         message.textContent =
             "Only halfway? That's definitely not enough. 💜";
 
     }
 
-    else if (loveAmount === 70) {
+    else if (percentage >= 70 && percentage < 90) {
 
         message.textContent =
             "My love for you keeps growing. ✨";
 
     }
 
-    else if (loveAmount === 90) {
+    else if (percentage >= 90 && percentage < 100) {
 
         message.textContent =
             "Almost there... 💜";
@@ -148,8 +146,8 @@ loveButton.addEventListener("click", function() {
     }
 
 
-    // 100% = reveal the surprise
-    if (loveAmount === 100) {
+    // 30 clicks = reveal the surprise
+    if (loveAmount === 30) {
 
         message.textContent =
             "100%... but that's still not enough. 💜";
@@ -228,7 +226,7 @@ letterButton.addEventListener("click", function() {
     realLetter.classList.add("show");
 
     letterButton.textContent =
-        "Letter Opened 💜";
+        "Letter Opened";
 
     letterButton.disabled = true;
 

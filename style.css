@@ -26,12 +26,10 @@ body {
 
 .hero {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     padding: 30px;
 
@@ -42,35 +40,39 @@ body {
     );
 }
 
+/* Beating Heart */
+
 .heart {
     font-size: 70px;
-
-    animation: heartbeat 1.5s infinite;
+    display: inline-block;
+    animation: heartbeat 1.3s infinite;
+    transform-origin: center;
 }
 
-.hero h1 {
-    font-size: 60px;
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
 
-    color: #9b72cf;
+    15% {
+        transform: scale(1.15);
+    }
 
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
+    30% {
+        transform: scale(1);
+    }
 
-.hero p {
-    font-size: 20px;
+    45% {
+        transform: scale(1.15);
+    }
 
-    margin-bottom: 15px;
+    60% {
+        transform: scale(1);
+    }
 
-    color: #5e5368;
-}
-
-.since {
-    margin-bottom: 10px !important;
-
-    font-size: 16px !important;
-
-    color: #806a96 !important;
+    100% {
+        transform: scale(1);
+    }
 }
 
 
@@ -80,25 +82,17 @@ body {
 
 button {
     border: none;
-
     background-color: #9b72cf;
-
     color: white;
-
     padding: 15px 30px;
-
     border-radius: 30px;
-
     font-size: 17px;
-
     cursor: pointer;
-
     transition: 0.3s ease;
 }
 
 button:hover {
     transform: scale(1.06);
-
     background-color: #8057ad;
 }
 
@@ -109,15 +103,12 @@ button:hover {
 
 section {
     padding: 100px 20px;
-
     text-align: center;
 }
 
 section h2 {
     font-size: 40px;
-
     color: #9b72cf;
-
     margin-bottom: 40px;
 }
 
@@ -128,45 +119,33 @@ section h2 {
 
 .relationship-counter {
     display: flex;
-
     justify-content: center;
-
     gap: 15px;
-
     flex-wrap: wrap;
-
     margin: 25px 0 35px;
 }
 
 .counter-box {
     background-color: rgba(255, 255, 255, 0.9);
-
     width: 110px;
-
     padding: 15px 10px;
-
     border-radius: 15px;
 
-    box-shadow: 0 5px 15px rgba(70, 45, 90, 0.08);
+    box-shadow:
+        0 5px 15px rgba(70, 45, 90, 0.08);
 }
 
 .counter-box span {
     display: block;
-
     font-size: 28px;
-
     font-weight: bold;
-
     color: #9b72cf;
 }
 
 .counter-box small {
     display: block;
-
     margin-top: 5px;
-
     font-size: 12px;
-
     color: #6d6276;
 }
 
@@ -181,24 +160,276 @@ section h2 {
 
 .letter-box {
     max-width: 650px;
-
     margin: auto;
-
     background-color: #f7f0ff;
-
     padding: 40px;
-
     border-radius: 20px;
 
-    box-shadow: 0 10px 30px rgba(70, 45, 90, 0.08);
+    box-shadow:
+        0 10px 30px rgba(70, 45, 90, 0.08);
 
     text-align: left;
 }
 
 .letter-box p {
     margin-bottom: 20px;
-
     font-size: 18px;
+}
+
+
+/* ==================== */
+/* INTERACTIVE LOVE LETTER */
+/* ==================== */
+
+.envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.envelope {
+    width: 280px;
+    height: 180px;
+    position: relative;
+
+    background-color: #d9c2f0;
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 25px rgba(70, 45, 90, 0.12);
+
+    overflow: hidden;
+
+    transition: transform 0.4s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-8px);
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-preview {
+    width: 100px;
+    height: 80px;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 5px 12px rgba(70, 45, 90, 0.1);
+}
+
+.envelope-top {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 95px solid #b99ada;
+
+    z-index: 2;
+}
+
+.real-letter {
+    max-width: 700px;
+    margin: 50px auto 0;
+
+    padding: 40px;
+
+    background-color: #f7f0ff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(70, 45, 90, 0.08);
+
+    text-align: left;
+
+    display: none;
+
+    animation: letterAppear 1s ease;
+}
+
+.real-letter.show {
+    display: block;
+}
+
+.real-letter p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.signature {
+    text-align: right;
+    color: #8057ad;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================== */
+/* OUR STORY TIMELINE */
+/* ==================== */
+
+.story {
+    background-color: #faf7ff;
+}
+
+.timeline {
+    max-width: 1000px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background-color: #d9c2f0;
+
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+
+    width: 100%;
+    min-height: 190px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-dot {
+    width: 58px;
+    height: 58px;
+
+    background-color: #f7f0ff;
+
+    border: 3px solid #9b72cf;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    box-shadow:
+        0 5px 15px rgba(70, 45, 90, 0.08);
+}
+
+.timeline-content {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 390px;
+
+    padding: 25px 30px;
+
+    background-color: #f7f0ff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 20px rgba(70, 45, 90, 0.08);
+
+    text-align: left;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    right: calc(50% + 55px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    left: calc(50% + 55px);
+    text-align: left;
+}
+
+.timeline-date {
+    display: block;
+
+    color: #9b72cf;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    color: #8057ad;
+
+    margin: 6px 0 10px;
+
+    font-size: 21px;
+}
+
+.timeline-content p {
+    color: #6d6276;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    margin: 0;
 }
 
 
@@ -207,7 +438,7 @@ section h2 {
 /* ==================== */
 
 .memories {
-    background-color: #faf7ff;
+    background-color: #ffffff;
 }
 
 .section-intro {
@@ -224,7 +455,6 @@ section h2 {
     display: flex;
 
     justify-content: center;
-
     align-items: stretch;
 
     gap: 30px;
@@ -235,13 +465,14 @@ section h2 {
 .memory {
     width: 280px;
 
-    background-color: #ffffff;
+    background-color: #fff;
 
     padding: 18px;
 
     border-radius: 20px;
 
-    box-shadow: 0 10px 25px rgba(70, 45, 90, 0.08);
+    box-shadow:
+        0 10px 25px rgba(70, 45, 90, 0.08);
 
     transition:
         transform 0.3s ease,
@@ -253,12 +484,12 @@ section h2 {
 .memory:hover {
     transform: translateY(-10px);
 
-    box-shadow: 0 15px 30px rgba(70, 45, 90, 0.12);
+    box-shadow:
+        0 15px 30px rgba(70, 45, 90, 0.12);
 }
 
 .memory img {
     width: 100%;
-
     height: 230px;
 
     object-fit: cover;
@@ -286,13 +517,12 @@ section h2 {
 
 
 /* ==================== */
-/* REASONS I LOVE YOU */
+/* REASONS WHY I LOVE YOU */
 /* ==================== */
 
 .reasons {
-    background-color: #ffffff;
+    background-color: #faf7ff;
 }
-
 
 .reasons .section-intro {
     max-width: 600px;
@@ -303,7 +533,6 @@ section h2 {
 
     font-size: 17px;
 }
-
 
 .reason-list {
     max-width: 900px;
@@ -316,7 +545,6 @@ section h2 {
 
     gap: 25px;
 }
-
 
 .reason-card {
     background-color: #f7f0ff;
@@ -340,7 +568,6 @@ section h2 {
         border-color 0.3s ease;
 }
 
-
 .reason-card:hover {
     transform: translateY(-7px);
 
@@ -350,23 +577,16 @@ section h2 {
         0 15px 30px rgba(70, 45, 90, 0.12);
 }
 
-
-/* Number */
-
 .reason-number {
     display: block;
 
     color: #9b72cf;
 
     font-size: 14px;
-
     font-weight: bold;
 
     margin-bottom: 10px;
 }
-
-
-/* Title */
 
 .reason-card h3 {
     color: #8057ad;
@@ -375,9 +595,6 @@ section h2 {
 
     margin-bottom: 8px;
 }
-
-
-/* Small instruction */
 
 .click-text {
     color: #9a8ca5;
@@ -388,9 +605,6 @@ section h2 {
 
     transition: 0.3s ease;
 }
-
-
-/* Hidden message */
 
 .reason-message {
     max-height: 0;
@@ -413,15 +627,11 @@ section h2 {
         margin-top 0.5s ease;
 }
 
-
-/* Open card */
-
 .reason-card.open {
     border-color: #d9c2f0;
 
     background-color: #f4eaff;
 }
-
 
 .reason-card.open .reason-message {
     max-height: 150px;
@@ -431,17 +641,9 @@ section h2 {
     margin-top: 18px;
 }
 
-
 .reason-card.open .click-text {
     opacity: 0.5;
 }
-
-
-/* ==================== */
-/* CENTER LAST CARD */
-/* ==================== */
-
-/* Put Reason #5 in the center */
 
 .reason-card:last-child {
     grid-column: 1 / -1;
@@ -449,23 +651,6 @@ section h2 {
     justify-self: center;
 
     width: calc(50% - 12.5px);
-}
-
-
-/* ==================== */
-/* MOBILE */
-/* ==================== */
-
-@media (max-width: 650px) {
-
-    .reason-list {
-        grid-template-columns: 1fr;
-    }
-
-    .reason-card:last-child {
-        width: 100%;
-    }
-
 }
 
 
@@ -479,20 +664,18 @@ section h2 {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     background: linear-gradient(
         135deg,
-        #f0e6ff,
-        #faf7ff
+        #ffffff,
+        #f5efff
     );
 
     position: relative;
 
     overflow: hidden;
 }
-
 
 .final-love-content {
     width: 100%;
@@ -508,7 +691,6 @@ section h2 {
     z-index: 2;
 }
 
-
 .love-intro {
     color: #6d6276;
 
@@ -517,11 +699,6 @@ section h2 {
     margin-bottom: 35px;
 }
 
-
-/* ==================== */
-/* LOVE METER */
-/* ==================== */
-
 .love-meter {
     width: 90%;
 
@@ -529,7 +706,6 @@ section h2 {
 
     margin: 0 auto 30px;
 }
-
 
 .love-bar {
     width: 100%;
@@ -542,7 +718,6 @@ section h2 {
 
     overflow: hidden;
 }
-
 
 #loveFill {
     width: 0%;
@@ -561,7 +736,6 @@ section h2 {
     transition: width 0.4s ease;
 }
 
-
 .love-percent {
     margin-top: 15px;
 
@@ -571,11 +745,6 @@ section h2 {
 
     color: #9b72cf;
 }
-
-
-/* ==================== */
-/* MAIN MESSAGE */
-/* ==================== */
 
 #message {
     min-height: 30px;
@@ -588,11 +757,6 @@ section h2 {
 
     font-weight: bold;
 }
-
-
-/* ==================== */
-/* FINAL SURPRISE */
-/* ==================== */
 
 .final-surprise {
     display: none;
@@ -613,11 +777,9 @@ section h2 {
     animation: finalReveal 1.2s ease;
 }
 
-
 .final-surprise.show {
     display: block;
 }
-
 
 .big-heart {
     font-size: 75px;
@@ -627,7 +789,6 @@ section h2 {
     animation: heartbeat 1.5s infinite;
 }
 
-
 .final-surprise h3 {
     color: #8057ad;
 
@@ -635,7 +796,6 @@ section h2 {
 
     margin-bottom: 20px;
 }
-
 
 .final-surprise p {
     color: #5e5368;
@@ -647,7 +807,6 @@ section h2 {
     margin-bottom: 18px;
 }
 
-
 .final-divider {
     color: #9b72cf;
 
@@ -655,7 +814,6 @@ section h2 {
 
     letter-spacing: 10px;
 }
-
 
 .final-message {
     color: #9b72cf !important;
@@ -665,7 +823,6 @@ section h2 {
     font-weight: bold;
 }
 
-
 .final-signature {
     text-align: right;
 
@@ -673,11 +830,6 @@ section h2 {
 
     font-weight: bold;
 }
-
-
-/* ==================== */
-/* FLOATING HEARTS */
-/* ==================== */
 
 .floating-heart {
     position: absolute;
@@ -692,30 +844,19 @@ section h2 {
         floatUp 5s linear forwards;
 }
 
-
 @keyframes finalReveal {
-
     from {
         opacity: 0;
-
-        transform:
-            scale(0.9)
-            translateY(30px);
+        transform: scale(0.9) translateY(30px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
+        transform: scale(1) translateY(0);
     }
-
 }
 
-
 @keyframes floatUp {
-
     0% {
         opacity: 0;
 
@@ -735,450 +876,8 @@ section h2 {
             translateY(-90vh)
             rotate(25deg);
     }
-
 }
 
-
-/* ==================== */
-/* MOBILE */
-/* ==================== */
-
-@media (max-width: 600px) {
-
-    .love-meter {
-        width: 100%;
-    }
-
-    .love-percent {
-        font-size: 35px;
-    }
-
-    .final-surprise {
-        padding: 25px;
-    }
-
-    .final-surprise h3 {
-        font-size: 25px;
-    }
-
-}
-/* ==================== */
-/* INTERACTIVE LOVE LETTER */
-/* ==================== */
-
-.envelope-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-
-/* Envelope */
-
-.envelope {
-    width: 280px;
-    height: 180px;
-
-    position: relative;
-
-    background-color: #d9c2f0;
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 10px 25px rgba(70, 45, 90, 0.12);
-
-    overflow: hidden;
-
-    transition: transform 0.4s ease;
-}
-
-
-.envelope:hover {
-    transform: translateY(-8px);
-}
-
-
-/* Envelope body */
-
-.envelope-body {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Paper visible inside envelope */
-
-.letter-preview {
-    width: 100px;
-    height: 80px;
-
-    background-color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 35px;
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 5px 12px rgba(70, 45, 90, 0.1);
-}
-
-
-/* Envelope flap */
-
-.envelope-top {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    border-top: 95px solid #b99ada;
-
-    z-index: 2;
-}
-
-
-/* Hidden letter */
-
-.real-letter {
-    max-width: 700px;
-
-    margin: 50px auto 0;
-
-    padding: 40px;
-
-    background-color: #f7f0ff;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 10px 30px rgba(70, 45, 90, 0.08);
-
-    text-align: left;
-
-    display: none;
-
-    animation: letterAppear 1s ease;
-}
-
-
-/* Show the letter */
-
-.real-letter.show {
-    display: block;
-}
-
-
-/* Letter text */
-
-.real-letter p {
-    margin-bottom: 20px;
-
-    font-size: 18px;
-}
-
-
-/* Signature */
-
-.signature {
-    text-align: right;
-
-    color: #8057ad;
-
-    font-weight: bold;
-
-    margin-top: 30px;
-}
-
-
-/* Letter entrance animation */
-
-@keyframes letterAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-/* ==================== */
-/* OUR STORY TIMELINE */
-/* ==================== */
-
-.story {
-    background-color: #ffffff;
-}
-
-
-.timeline {
-    max-width: 1000px;
-
-    margin: 60px auto 0;
-
-    position: relative;
-}
-
-
-/* ==================== */
-/* VERTICAL CENTER LINE */
-/* ==================== */
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background-color: #d9c2f0;
-
-    transform: translateX(-50%);
-}
-
-
-/* ==================== */
-/* TIMELINE ITEM */
-/* ==================== */
-
-.timeline-item {
-    position: relative;
-
-    width: 100%;
-
-    min-height: 190px;
-
-    margin-bottom: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-/* ==================== */
-/* CENTER EMOJI */
-/* ==================== */
-
-.timeline-dot {
-    width: 58px;
-    height: 58px;
-
-    background-color: #f7f0ff;
-
-    border: 3px solid #9b72cf;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    font-size: 24px;
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 3;
-
-    box-shadow:
-        0 5px 15px rgba(70, 45, 90, 0.08);
-}
-
-
-/* ==================== */
-/* CONTENT CARD */
-/* ==================== */
-
-.timeline-content {
-    position: absolute;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 390px;
-
-    padding: 25px 30px;
-
-    background-color: #f7f0ff;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 20px rgba(70, 45, 90, 0.08);
-
-    text-align: left;
-}
-
-
-/* ==================== */
-/* LEFT SIDE */
-/* ==================== */
-
-.timeline-item:nth-child(odd) .timeline-content {
-
-    right: calc(50% + 55px);
-
-    text-align: right;
-}
-
-
-/* ==================== */
-/* RIGHT SIDE */
-/* ==================== */
-
-.timeline-item:nth-child(even) .timeline-content {
-
-    left: calc(50% + 55px);
-
-    text-align: left;
-}
-
-
-/* ==================== */
-/* DATE */
-/* ==================== */
-
-.timeline-date {
-    display: block;
-
-    color: #9b72cf;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    margin-bottom: 5px;
-}
-
-
-/* ==================== */
-/* TITLE */
-/* ==================== */
-
-.timeline-content h3 {
-    color: #8057ad;
-
-    margin: 6px 0 10px;
-
-    font-size: 21px;
-}
-
-
-/* ==================== */
-/* DESCRIPTION */
-/* ==================== */
-
-.timeline-content p {
-    color: #6d6276;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    margin: 0;
-}
-
-
-/* ==================== */
-/* MOBILE TIMELINE */
-/* ==================== */
-
-@media (max-width: 700px) {
-
-    .timeline {
-        margin-top: 50px;
-
-        padding-left: 70px;
-    }
-
-
-    /* Move line to the left */
-
-    .timeline::before {
-        left: 28px;
-    }
-
-
-    .timeline-item {
-
-        min-height: auto;
-
-        margin-bottom: 35px;
-
-        display: block;
-    }
-
-
-    /* Emoji */
-
-    .timeline-dot {
-
-        width: 52px;
-        height: 52px;
-
-        left: 28px;
-        top: 25px;
-
-        transform: translate(-50%, 0);
-
-        font-size: 22px;
-    }
-
-
-    /* Content */
-
-    .timeline-content {
-
-        position: relative;
-
-        top: auto;
-
-        left: auto !important;
-        right: auto !important;
-
-        transform: none;
-
-        width: 100%;
-
-        padding: 22px;
-
-        text-align: left !important;
-    }
-
-}
 
 /* ==================== */
 /* FLOATING MUSIC PLAYER */
@@ -1194,11 +893,6 @@ section h2 {
 
     font-family: Arial, sans-serif;
 }
-
-
-/* ==================== */
-/* MINI PLAYER */
-/* ==================== */
 
 .music-toggle {
     display: flex;
@@ -1229,7 +923,6 @@ section h2 {
         box-shadow 0.3s ease;
 }
 
-
 .music-toggle:hover {
     transform: translateY(-3px);
 
@@ -1237,26 +930,18 @@ section h2 {
         0 12px 30px rgba(70, 45, 90, 0.2);
 }
 
-
 .music-icon {
     font-size: 18px;
 }
-
 
 .music-mini-text {
     font-weight: bold;
 }
 
-
-/* ==================== */
-/* MUSIC PANEL */
-/* ==================== */
-
 .music-panel {
     position: absolute;
 
     right: 0;
-
     bottom: 60px;
 
     width: 340px;
@@ -1288,7 +973,6 @@ section h2 {
         visibility 0.3s ease;
 }
 
-
 .music-player.open .music-panel {
     opacity: 1;
 
@@ -1299,11 +983,6 @@ section h2 {
         scale(1);
 }
 
-
-/* ==================== */
-/* HEADER */
-/* ==================== */
-
 .music-header {
     display: flex;
 
@@ -1313,7 +992,6 @@ section h2 {
 
     margin-bottom: 20px;
 }
-
 
 .music-label {
     display: block;
@@ -1329,7 +1007,6 @@ section h2 {
     margin-bottom: 5px;
 }
 
-
 .music-header h3 {
     color: #8057ad;
 
@@ -1337,7 +1014,6 @@ section h2 {
 
     margin: 0 0 2px;
 }
-
 
 .music-header p {
     color: #8b7d95;
@@ -1347,10 +1023,8 @@ section h2 {
     margin: 0;
 }
 
-
 .music-close {
     width: 35px;
-
     height: 35px;
 
     padding: 0;
@@ -1368,21 +1042,14 @@ section h2 {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 }
-
 
 .music-close:hover {
     background-color: #e9dafa;
 
     transform: none;
 }
-
-
-/* ==================== */
-/* PROGRESS BAR */
-/* ==================== */
 
 .music-progress-container {
     display: flex;
@@ -1394,7 +1061,6 @@ section h2 {
     margin-bottom: 15px;
 }
 
-
 .music-progress-container span {
     color: #8b7d95;
 
@@ -1402,7 +1068,6 @@ section h2 {
 
     min-width: 28px;
 }
-
 
 #musicProgress {
     flex: 1;
@@ -1418,12 +1083,10 @@ section h2 {
     cursor: pointer;
 }
 
-
 #musicProgress::-webkit-slider-thumb {
     appearance: none;
 
     width: 12px;
-
     height: 12px;
 
     background-color: #9b72cf;
@@ -1433,10 +1096,8 @@ section h2 {
     cursor: pointer;
 }
 
-
 #musicProgress::-moz-range-thumb {
     width: 12px;
-
     height: 12px;
 
     background-color: #9b72cf;
@@ -1447,11 +1108,6 @@ section h2 {
 
     cursor: pointer;
 }
-
-
-/* ==================== */
-/* MUSIC CONTROLS */
-/* ==================== */
 
 .music-controls {
     display: flex;
@@ -1465,10 +1121,8 @@ section h2 {
     margin-bottom: 20px;
 }
 
-
 .music-controls button {
     width: 42px;
-
     height: 42px;
 
     padding: 0;
@@ -1476,7 +1130,6 @@ section h2 {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     background-color: #f7f0ff;
@@ -1486,17 +1139,14 @@ section h2 {
     font-size: 15px;
 }
 
-
 .music-controls button:hover {
     background-color: #e9dafa;
 
     transform: scale(1.05);
 }
 
-
 .music-controls .play-button {
     width: 55px;
-
     height: 55px;
 
     background-color: #9b72cf;
@@ -1506,17 +1156,11 @@ section h2 {
     font-size: 19px;
 }
 
-
 .music-controls .play-button:hover {
     background-color: #8057ad;
 
     transform: scale(1.08);
 }
-
-
-/* ==================== */
-/* PLAYLIST */
-/* ==================== */
 
 .playlist {
     display: flex;
@@ -1525,7 +1169,6 @@ section h2 {
 
     gap: 6px;
 }
-
 
 .playlist-song {
     width: 100%;
@@ -1551,18 +1194,15 @@ section h2 {
         transform 0.25s ease;
 }
 
-
 .playlist-song:hover {
     background-color: #f7f0ff;
 
     transform: none;
 }
 
-
 .playlist-song.active {
     background-color: #f4eaff;
 }
-
 
 .song-number {
     color: #9b72cf;
@@ -1574,7 +1214,6 @@ section h2 {
     width: 22px;
 }
 
-
 .song-info {
     display: flex;
 
@@ -1585,7 +1224,6 @@ section h2 {
     min-width: 0;
 }
 
-
 .song-info strong {
     color: #8057ad;
 
@@ -1593,7 +1231,6 @@ section h2 {
 
     font-weight: bold;
 }
-
 
 .song-info small {
     color: #8b7d95;
@@ -1603,26 +1240,18 @@ section h2 {
     margin-top: 2px;
 }
 
-
 .song-play {
     color: #9b72cf;
 
     font-size: 11px;
 }
 
-
-/* ==================== */
-/* PLAYING ANIMATION */
-/* ==================== */
-
 .music-player.playing .music-icon {
     animation:
         musicPulse 1s ease-in-out infinite;
 }
 
-
 @keyframes musicPulse {
-
     0% {
         transform: scale(1);
     }
@@ -1634,41 +1263,107 @@ section h2 {
     100% {
         transform: scale(1);
     }
-
 }
 
 
 /* ==================== */
-/* MOBILE */
+/* RESPONSIVE */
 /* ==================== */
+
+@media (max-width: 700px) {
+
+    .timeline {
+        margin-top: 50px;
+        padding-left: 70px;
+    }
+
+    .timeline::before {
+        left: 28px;
+    }
+
+    .timeline-item {
+        min-height: auto;
+
+        margin-bottom: 35px;
+
+        display: block;
+    }
+
+    .timeline-dot {
+        width: 52px;
+        height: 52px;
+
+        left: 28px;
+        top: 25px;
+
+        transform: translate(-50%, 0);
+
+        font-size: 22px;
+    }
+
+    .timeline-content {
+        position: relative;
+
+        top: auto;
+        left: auto !important;
+        right: auto !important;
+
+        transform: none;
+
+        width: 100%;
+
+        padding: 22px;
+
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .reason-list {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-card:last-child {
+        width: 100%;
+    }
+}
 
 @media (max-width: 600px) {
 
+    .love-meter {
+        width: 100%;
+    }
+
+    .love-percent {
+        font-size: 35px;
+    }
+
+    .final-surprise {
+        padding: 25px;
+    }
+
+    .final-surprise h3 {
+        font-size: 25px;
+    }
+
     .music-player {
         right: 15px;
-
         bottom: 15px;
     }
 
-
     .music-panel {
-        width: min(
-            340px,
-            calc(100vw - 30px)
-        );
+        width: min(340px, calc(100vw - 30px));
 
         right: 0;
-
         bottom: 58px;
 
         padding: 18px;
     }
-
 
     .music-toggle {
         padding: 11px 15px;
 
         font-size: 13px;
     }
-
 }
