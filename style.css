@@ -1,0 +1,394 @@
+/* ==================== */
+/* GENERAL */
+/* ==================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #fff5f7;
+
+    color: #333;
+
+    line-height: 1.6;
+}
+
+
+/* ==================== */
+/* HERO */
+/* ==================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #fff5f7,
+        #ffe0e8
+    );
+}
+
+
+.heart {
+    font-size: 70px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+.hero h1 {
+    font-size: 60px;
+
+    color: #d6336c;
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+.hero p {
+    font-size: 20px;
+
+    margin-bottom: 30px;
+
+    color: #555;
+}
+
+
+/* ==================== */
+/* BUTTONS */
+/* ==================== */
+
+button {
+    border: none;
+
+    background-color: #d6336c;
+
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: scale(1.08);
+
+    background-color: #b82b5b;
+}
+
+
+/* ==================== */
+/* GENERAL SECTIONS */
+/* ==================== */
+
+section {
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+
+section h2 {
+    font-size: 40px;
+
+    color: #d6336c;
+
+    margin-bottom: 40px;
+}
+
+
+/* ==================== */
+/* LETTER */
+/* ==================== */
+
+.letter {
+    background-color: white;
+}
+
+
+.letter-box {
+    max-width: 650px;
+
+    margin: auto;
+
+    background-color: #fff5f7;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+}
+
+
+.letter-box p {
+    margin-bottom: 20px;
+
+    font-size: 18px;
+}
+
+
+/* ==================== */
+/* MEMORIES */
+/* ==================== */
+
+.memories {
+    background-color: #fff5f7;
+}
+
+
+.memory-container {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+
+.memory {
+    width: 280px;
+
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+
+.memory:hover {
+    transform: translateY(-10px);
+}
+
+
+.photo {
+    height: 220px;
+
+    background-color: #ffe0e8;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+}
+
+
+.memory h3 {
+    color: #d6336c;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==================== */
+/* REASONS */
+/* ==================== */
+
+.reasons {
+    background-color: white;
+}
+
+
+.reason-list {
+    max-width: 600px;
+
+    margin: auto;
+}
+
+
+.reason {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background-color: #fff5f7;
+
+    margin-bottom: 15px;
+
+    padding: 18px 25px;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+
+.reason:hover {
+    transform: translateX(8px);
+}
+
+
+.reason span {
+    font-weight: bold;
+
+    color: #d6336c;
+
+    font-size: 18px;
+}
+
+
+/* ==================== */
+/* LOVE COUNTER */
+/* ==================== */
+
+.love-counter {
+    background: linear-gradient(
+        135deg,
+        #ffe0e8,
+        #fff5f7
+    );
+}
+
+
+.love-counter p {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+#counter {
+    font-size: 70px;
+
+    font-weight: bold;
+
+    color: #d6336c;
+
+    margin: 20px;
+}
+
+
+#message {
+    font-weight: bold;
+
+    color: #d6336c;
+}
+
+
+/* ==================== */
+/* FOOTER */
+/* ==================== */
+
+footer {
+    text-align: center;
+
+    padding: 35px;
+
+    background-color: #d6336c;
+
+    color: white;
+}
+
+
+footer p {
+    margin: 5px;
+}
+
+
+/* ==================== */
+/* ANIMATION */
+/* ==================== */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.15);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* ==================== */
+/* MOBILE */
+/* ==================== */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    section h2 {
+        font-size: 30px;
+    }
+
+    .letter-box {
+        padding: 25px;
+    }
+
+    .memory {
+        width: 100%;
+        max-width: 350px;
+    }
+
+}
