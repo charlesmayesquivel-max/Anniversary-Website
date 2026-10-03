@@ -1,4 +1,55 @@
 // ====================
+// RELATIONSHIP COUNTER
+// ====================
+
+const startDate = new Date("2025-10-05T00:00:00");
+
+function updateRelationshipCounter() {
+
+    const now = new Date();
+
+    let difference = now - startDate;
+
+    if (difference < 0) {
+        difference = 0;
+    }
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+
+    const hours = Math.floor(
+        (totalSeconds % 86400) / 3600
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds =
+        totalSeconds % 60;
+
+    document.getElementById("daysTogether").textContent = days;
+
+    document.getElementById("hoursTogether").textContent = hours;
+
+    document.getElementById("minutesTogether").textContent = minutes;
+
+    document.getElementById("secondsTogether").textContent = seconds;
+}
+
+
+// Update immediately
+updateRelationshipCounter();
+
+
+// Update every second
+setInterval(
+    updateRelationshipCounter,
+    1000
+);
+
+// ====================
 // OPEN MY HEART BUTTON
 // ====================
 
