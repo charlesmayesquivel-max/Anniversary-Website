@@ -1,29 +1,25 @@
-alert("SCRIPT.JS IS WORKING!");
-
 // ====================
 // RELATIONSHIP COUNTER
 // ====================
 
-const startDate = new Date("2025-10-05T00:00:00");
-
-// ====================
-// RELATIONSHIP COUNTER
-// ====================
-
-const startDate = new Date("2025-10-05T00:00:00");
+// October 5, 2025 at 12:00 AM Philippine Time (UTC+8)
+const startDate = new Date("2025-10-05T00:00:00+08:00");
 
 function updateRelationshipCounter() {
 
     const now = new Date();
 
-    let difference = now - startDate;
+    let difference = now.getTime() - startDate.getTime();
 
+    // Prevent negative values
     if (difference < 0) {
         difference = 0;
     }
 
+    // Convert milliseconds to total seconds
     const totalSeconds = Math.floor(difference / 1000);
 
+    // Calculate each unit
     const days = Math.floor(totalSeconds / 86400);
 
     const hours = Math.floor(
@@ -37,6 +33,8 @@ function updateRelationshipCounter() {
     const seconds =
         totalSeconds % 60;
 
+
+    // Display values
     document.getElementById("daysTogether").textContent = days;
 
     document.getElementById("hoursTogether").textContent = hours;
@@ -52,16 +50,15 @@ updateRelationshipCounter();
 
 
 // Update every second
-setInterval(
-    updateRelationshipCounter,
-    1000
-);
+setInterval(updateRelationshipCounter, 1000);
+
 
 // ====================
 // OPEN MY HEART BUTTON
 // ====================
 
-const openButton = document.getElementById("openButton");
+const openButton =
+    document.getElementById("openButton");
 
 openButton.addEventListener("click", function() {
 
@@ -248,11 +245,11 @@ letterButton.addEventListener("click", function() {
 
 function showReason(number) {
 
-    const message =
+    const reasonMessage =
         document.getElementById("reason" + number);
 
     const card =
-        message.parentElement;
+        reasonMessage.parentElement;
 
     card.classList.toggle("open");
 
@@ -268,9 +265,6 @@ const musicPlayer =
 
 const musicToggle =
     document.getElementById("musicToggle");
-
-const musicPanel =
-    document.getElementById("musicPanel");
 
 const musicClose =
     document.getElementById("musicClose");
@@ -388,8 +382,6 @@ function loadSong(index) {
     audioPlayer.load();
 
 
-    // Reset progress
-
     musicProgress.value = 0;
 
     currentTime.textContent =
@@ -398,8 +390,6 @@ function loadSong(index) {
     duration.textContent =
         "0:00";
 
-
-    // Update active song
 
     playlistSongs.forEach(function(songButton, buttonIndex) {
 
@@ -667,3 +657,4 @@ musicClose.addEventListener(
 // ====================
 
 loadSong(0);
+
