@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Annivesary</title>
+    <title>Happy Anniversary</title>
 
     <!-- Connect CSS -->
     <link rel="stylesheet" href="style.css?v=2">
@@ -19,7 +19,23 @@
 
 <body>
 
-    <div class="background-effects" aria-hidden="true">
+    <!-- ==================== -->
+<!-- FLOATING NAVIGATION -->
+<!-- ==================== -->
+
+<nav class="site-nav">
+    <a href="#home" class="nav-logo">♡</a>
+
+    <div class="nav-links">
+        <a href="#letter">Letter</a>
+        <a href="#story">Our Story</a>
+        <a href="#memories">Memories</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#love">Forever</a>
+    </div>
+</nav>
+
+<div class="background-effects" aria-hidden="true">
     <span class="bg-glow glow-1"></span>
     <span class="bg-glow glow-2"></span>
     <span class="bg-glow glow-3"></span>
@@ -200,7 +216,7 @@
     <!-- HERO SECTION -->
     <!-- ==================== -->
 
-    <section class="hero">
+    <section class="hero" id="home">
 
         <div class="heart">💜</div>
 
@@ -247,7 +263,7 @@
     <!-- LOVE LETTER -->
     <!-- ==================== -->
 
-    <section class="letter">
+    <section class="letter" id="letter">
 
         <h2>A Letter For You</h2>
 
@@ -319,7 +335,7 @@
 <!-- OUR STORY -->
 <!-- ==================== -->
 
-<section class="story">
+<section class="story" id="story">
 
     <h2>Our Story</h2>
 
@@ -473,7 +489,7 @@
     <!-- MEMORIES -->
     <!-- ==================== -->
 
-<section class="memories">
+<section class="memories" id="memories">
 
     <h2>Our Memories 📸</h2>
 
@@ -536,7 +552,7 @@
 <!-- REASONS I LOVE YOU -->
 <!-- ==================== -->
 
-<section class="reasons">
+<section class="reasons" id="reasons">
 
     <h2>Reasons Why I Love You</h2>
 
@@ -651,7 +667,7 @@
 <!-- FINAL LOVE SURPRISE -->
 <!-- ==================== -->
 
-<section class="love-counter">
+<section class="love-counter" id="love">
 
     <div class="final-love-content">
 
@@ -694,6 +710,10 @@
         <!-- FINAL SURPRISE -->
 
         <div class="final-surprise" id="finalSurprise">
+
+            <button class="final-close" id="finalClose" aria-label="Close final message">
+            ×
+            </button>
 
             <div class="big-heart">
                 💜

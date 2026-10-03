@@ -149,25 +149,49 @@ loveButton.addEventListener("click", function() {
     // 30 clicks = reveal the surprise
     if (loveAmount === 30) {
 
-        message.textContent =
-            "100%... but that's still not enough. 💜";
+    message.textContent =
+        "100%... but that's still not enough. 💜";
 
-        loveButton.textContent =
-            "There's No Limit 💜";
+    loveButton.textContent =
+        "There's No Limit 💜";
 
-        finalSurprise.classList.add("show");
+    finalSurprise.classList.add("show");
 
-        createHearts();
+    document
+        .querySelector(".love-counter")
+        .classList.add("final-active");
 
-        finalSurprise.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+    createHearts();
+
+}
+
+});
+
+const finalClose =
+    document.getElementById("finalClose");
+
+    finalClose.addEventListener("click", function() {
+
+    const loveSection =
+        document.querySelector(".love-counter");
+
+    loveSection.classList.remove("final-active");
+
+    finalSurprise.classList.remove("show");
+
+});
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        document
+            .querySelector(".love-counter")
+            .classList.remove("final-active");
 
     }
 
 });
-
 
 // ====================
 // FLOATING HEARTS
@@ -656,3 +680,46 @@ musicClose.addEventListener(
 
 loadSong(0);
 
+// ====================
+// FULL WEBSITE GLITTER
+// ====================
+
+function createWebsiteGlitter() {
+
+    const background =
+        document.querySelector(".background-effects");
+
+    const symbols = ["✦", "✧", "⋆", "✩", "·"];
+
+    for (let i = 0; i < 45; i++) {
+
+        const glitter =
+            document.createElement("span");
+
+        glitter.classList.add("glitter");
+
+        glitter.textContent =
+            symbols[
+                Math.floor(Math.random() * symbols.length)
+            ];
+
+        glitter.style.left =
+            Math.random() * 100 + "%";
+
+        glitter.style.top =
+            Math.random() * 100 + "%";
+
+        glitter.style.fontSize =
+            (6 + Math.random() * 10) + "px";
+
+        glitter.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        glitter.style.animationDuration =
+            (2.5 + Math.random() * 3) + "s";
+
+        background.appendChild(glitter);
+    }
+}
+
+createWebsiteGlitter();
