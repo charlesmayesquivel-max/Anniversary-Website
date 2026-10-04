@@ -10,7 +10,7 @@
     <title>Happy Anniversary</title>
 
     <!-- Connect CSS -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -19,23 +19,41 @@
 
 <body>
 
-    <!-- ==================== -->
-<!-- FLOATING NAVIGATION -->
-<!-- ==================== -->
+<!-- =========================================================
+     FLOATING NAVIGATION
+========================================================= -->
 
 <nav class="site-nav">
-    <a href="#home" class="nav-logo">♡</a>
+
+    <a href="#home" class="nav-logo" aria-label="Go to home">
+        ♡
+    </a>
 
     <div class="nav-links">
+
         <a href="#letter">Letter</a>
+
         <a href="#story">Our Story</a>
+
         <a href="#memories">Memories</a>
+
         <a href="#reasons">Reasons</a>
+
+        <a href="#stats">Stats</a>
+
         <a href="#love">Forever</a>
+
     </div>
+
 </nav>
 
+
+<!-- =========================================================
+     BACKGROUND EFFECTS
+========================================================= -->
+
 <div class="background-effects" aria-hidden="true">
+
     <span class="bg-glow glow-1"></span>
     <span class="bg-glow glow-2"></span>
     <span class="bg-glow glow-3"></span>
@@ -46,230 +64,453 @@
     <span class="bg-particle particle-4">·</span>
     <span class="bg-particle particle-5">✦</span>
     <span class="bg-particle particle-6">·</span>
+
 </div>
 
-<!-- ==================== -->
-<!-- FLOATING MUSIC PLAYER -->
-<!-- ==================== -->
+
+<!-- =========================================================
+     FLOATING MUSIC PLAYER
+========================================================= -->
 
 <div class="music-player" id="musicPlayer">
 
 
-<!-- Mini Player -->
-<button class="music-toggle" id="musicToggle" aria-label="Open music player">
-    <span class="music-icon">🎵</span>
-    <span class="music-mini-text">Our Song</span>
-</button>
+    <!-- Mini Player -->
+
+    <button
+        class="music-toggle"
+        id="musicToggle"
+        aria-label="Open music player">
+
+        <span class="music-icon">🎵</span>
+
+        <span class="music-mini-text">
+            Our Song
+        </span>
+
+    </button>
 
 
-<!-- Expanded Player -->
-<div class="music-panel" id="musicPanel">
+    <!-- Expanded Player -->
 
-    <div class="music-header">
+    <div class="music-panel" id="musicPanel">
 
-        <div>
-            <span class="music-label">🎵 OUR LITTLE PLAYLIST</span>
+        <div class="music-header">
 
-            <h3 id="currentSong">
-                Aphrodite
-            </h3>
+            <div>
 
-            <p id="currentArtist">
-                The Ridleys
-            </p>
+                <span class="music-label">
+                    🎵 OUR LITTLE PLAYLIST
+                </span>
+
+                <h3 id="currentSong">
+                    Aphrodite
+                </h3>
+
+                <p id="currentArtist">
+                    The Ridleys
+                </p>
+
+            </div>
+
+
+            <button
+                class="music-close"
+                id="musicClose"
+                aria-label="Close music player">
+
+                ×
+
+            </button>
+
         </div>
 
-        <button
-            class="music-close"
-            id="musicClose"
-            aria-label="Close music player">
-            ×
-        </button>
 
-    </div>
+        <!-- Progress -->
 
+        <div class="music-progress-container">
 
-    <!-- Progress -->
-
-    <div class="music-progress-container">
-
-        <span id="currentTime">0:00</span>
-
-        <input
-            type="range"
-            id="musicProgress"
-            min="0"
-            max="100"
-            value="0">
-
-        <span id="duration">0:00</span>
-
-    </div>
-
-
-    <!-- Controls -->
-
-    <div class="music-controls">
-
-        <button
-            id="previousSong"
-            aria-label="Previous song">
-            ⏮
-        </button>
-
-        <button
-            id="playPause"
-            class="play-button"
-            aria-label="Play music">
-            ▶
-        </button>
-
-        <button
-            id="nextSong"
-            aria-label="Next song">
-            ⏭
-        </button>
-
-    </div>
-
-
-    <!-- Playlist -->
-
-    <div class="playlist">
-
-        <button
-            class="playlist-song active"
-            data-song="0">
-
-            <span class="song-number">01</span>
-
-            <span class="song-info">
-                <strong>Aphrodite</strong>
-                <small>The Ridleys</small>
+            <span id="currentTime">
+                0:00
             </span>
 
-            <span class="song-play">▶</span>
+            <input
+                type="range"
+                id="musicProgress"
+                min="0"
+                max="100"
+                value="0"
+                aria-label="Music progress">
 
-        </button>
-
-
-        <button
-            class="playlist-song"
-            data-song="1">
-
-            <span class="song-number">02</span>
-
-            <span class="song-info">
-                <strong>Mahal</strong>
-                <small>Dilaw</small>
+            <span id="duration">
+                0:00
             </span>
 
-            <span class="song-play">▶</span>
-
-        </button>
+        </div>
 
 
-        <button
-            class="playlist-song"
-            data-song="2">
+        <!-- Controls -->
 
-            <span class="song-number">03</span>
+        <div class="music-controls">
 
-            <span class="song-info">
-                <strong>Dahan</strong>
-                <small>Over October</small>
-            </span>
+            <button
+                id="previousSong"
+                aria-label="Previous song">
 
-            <span class="song-play">▶</span>
+                ⏮
 
-        </button>
+            </button>
 
 
-        <button
-            class="playlist-song"
-            data-song="3">
+            <button
+                id="playPause"
+                class="play-button"
+                aria-label="Play music">
 
-            <span class="song-number">04</span>
+                ▶
 
-            <span class="song-info">
-                <strong>Yiee</strong>
-                <small>Dilaw</small>
-            </span>
+            </button>
 
-            <span class="song-play">▶</span>
 
-        </button>
+            <button
+                id="nextSong"
+                aria-label="Next song">
+
+                ⏭
+
+            </button>
+
+        </div>
+
+
+        <!-- Playlist -->
+
+        <div class="playlist">
+
+
+            <!-- SONG 1 -->
+
+            <button
+                class="playlist-song active"
+                data-song="0">
+
+                <span class="song-number">
+                    01
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Aphrodite
+                    </strong>
+
+                    <small>
+                        The Ridleys
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 2 -->
+
+            <button
+                class="playlist-song"
+                data-song="1">
+
+                <span class="song-number">
+                    02
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Dahan
+                    </strong>
+
+                    <small>
+                        Over October
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 3 -->
+
+            <button
+                class="playlist-song"
+                data-song="2">
+
+                <span class="song-number">
+                    03
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Ikot
+                    </strong>
+
+                    <small>
+                        Over October
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 4 -->
+
+            <button
+                class="playlist-song"
+                data-song="3">
+
+                <span class="song-number">
+                    04
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Ikaw Pa Rin Ang Pipiliin Ko
+                    </strong>
+
+                    <small>
+                        Cup of Joe
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 5 -->
+
+            <button
+                class="playlist-song"
+                data-song="4">
+
+                <span class="song-number">
+                    05
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Mahal
+                    </strong>
+
+                    <small>
+                        Dilaw
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 6 -->
+
+            <button
+                class="playlist-song"
+                data-song="5">
+
+                <span class="song-number">
+                    06
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Patutunguhan
+                    </strong>
+
+                    <small>
+                        Cup of Joe
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+
+            <!-- SONG 7 -->
+
+            <button
+                class="playlist-song"
+                data-song="6">
+
+                <span class="song-number">
+                    07
+                </span>
+
+                <span class="song-info">
+
+                    <strong>
+                        Yie
+                    </strong>
+
+                    <small>
+                        Dilaw
+                    </small>
+
+                </span>
+
+                <span class="song-play">
+                    ▶
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Hidden Audio Element -->
+
+        <audio id="audioPlayer"></audio>
 
     </div>
-
-
-    <!-- Hidden Audio Element -->
-
-    <audio id="audioPlayer"></audio>
 
 </div>
 
-</div>
 
 
-    <!-- ==================== -->
-    <!-- HERO SECTION -->
-    <!-- ==================== -->
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
 
-    <section class="hero" id="home">
+<section class="hero" id="home">
 
-        <div class="heart">💜</div>
+    <div class="heart">
+        💜
+    </div>
 
-        <h1>Happy Anniversary, Pagmamahal </h1>
 
-        <p>To the most special person in my life, I love you, Niña!</p>
+    <h1>
+        Happy Anniversary, Pagmamahal
+    </h1>
 
-        <p class="since">
+
+    <p>
+        To the most special person in my life,
+        I love you, Niña!
+    </p>
+
+
+    <p class="since">
         Together since October 5, 2025 — and counting
-        </p>
+    </p>
+
+
+    <!-- Relationship Counter -->
 
     <div class="relationship-counter">
 
         <div class="counter-box">
-            <span id="daysTogether">0</span>
-            <small>Days Together</small>
+
+            <span id="daysTogether">
+                0
+            </span>
+
+            <small>
+                Days Together
+            </small>
+
         </div>
 
-        <div class="counter-box">
-            <span id="hoursTogether">0</span>
-            <small>Hours</small>
-        </div>
 
         <div class="counter-box">
-            <span id="minutesTogether">0</span>
-            <small>Minutes</small>
+
+            <span id="hoursTogether">
+                0
+            </span>
+
+            <small>
+                Hours
+            </small>
+
         </div>
 
+
         <div class="counter-box">
-            <span id="secondsTogether">0</span>
-            <small>Seconds</small>
+
+            <span id="minutesTogether">
+                0
+            </span>
+
+            <small>
+                Minutes
+            </small>
+
+        </div>
+
+
+        <div class="counter-box">
+
+            <span id="secondsTogether">
+                0
+            </span>
+
+            <small>
+                Seconds
+            </small>
+
         </div>
 
     </div>
 
-        <button id="openButton">
-            Open My Heart 💜
-        </button>
 
-    </section>
+    <button id="openButton">
+        Open My Heart 💜
+    </button>
+
+</section>
 
 
-    <!-- ==================== -->
-    <!-- LOVE LETTER -->
-    <!-- ==================== -->
 
-    <section class="letter" id="letter">
+<!-- =========================================================
+     LOVE LETTER
+========================================================= -->
 
-        <h2>A Letter For You</h2>
+<section class="letter" id="letter">
 
-        <p class="section-intro">
+    <h2>
+        A Letter For You
+    </h2>
+
+
+    <p class="section-intro">
         I have something I want to tell you.
     </p>
+
 
     <div class="envelope-container">
 
@@ -287,57 +528,73 @@
 
         </div>
 
+
         <button id="letterButton">
             Open My Letter 💌
         </button>
 
     </div>
 
-    <!-- THE ACTUAL LETTER -->
+
+    <!-- ACTUAL LETTER -->
 
     <div class="real-letter" id="realLetter">
 
-            <p>
-                My Pagmamahal,
-            </p>
+        <p>
+            My Pagmamahal,
+        </p>
 
-            <p>
-                Starting from the day we met, I instantly fell in love with you. 
-                No joke, mamatay man ako. I really thought na wala akong chance sa’yo,
-                pero wow, tingnan mo naman—isang taon na tayo.
-            </p>
 
-            <p>
-                Simple lang naman ang wish ko, and that is for us to succeed in life,
-                to make you happy, and to make you feel loved habang magkasama tayo.
-                Thank you for understanding me, for caring for me, for supporting me,
-                and for the never-ending love you show me.
-            </p>
+        <p>
+            Starting from the day we met, I instantly fell in love with you.
+            No joke, mamatay man ako. I really thought na wala akong chance sa’yo,
+            pero wow, tingnan mo naman—isang taon na tayo.
+        </p>
 
-            <p>
-                Thank you for being part of my life.
-            </p>
 
-            <p>
-                Happy Anniversary and I love you so much!
-            </p>
+        <p>
+            Simple lang naman ang wish ko, and that is for us to succeed in life,
+            to make you happy, and to make you feel loved habang magkasama tayo.
+            Thank you for understanding me, for caring for me, for supporting me,
+            and for the never-ending love you show me.
+        </p>
 
-            <p class="signature">
-            With all my love,<br>
+
+        <p>
+            Thank you for being part of my life.
+        </p>
+
+
+        <p>
+            Happy Anniversary and I love you so much!
+        </p>
+
+
+        <p class="signature">
+
+            With all my love,
+            <br>
+
             Charles 💜
-            </p>
 
-        </div>
+        </p>
 
-    </section>
+    </div>
 
-<!-- ==================== -->
-<!-- OUR STORY -->
-<!-- ==================== -->
+</section>
+
+
+
+<!-- =========================================================
+     OUR STORY
+========================================================= -->
 
 <section class="story" id="story">
 
-    <h2>Our Story</h2>
+    <h2>
+        Our Story
+    </h2>
+
 
     <p class="section-intro">
         From one special day to all the days that came after,
@@ -356,13 +613,18 @@
                 💜
             </div>
 
+
             <div class="timeline-content">
 
                 <span class="timeline-date">
                     October 5, 2025
                 </span>
 
-                <h3>The Day It All Changed</h3>
+
+                <h3>
+                    The Day It All Changed
+                </h3>
+
 
                 <p>
                     The day that changed everything.
@@ -375,6 +637,7 @@
         </div>
 
 
+
         <!-- EVENT 2 -->
 
         <div class="timeline-item">
@@ -383,13 +646,18 @@
                 ✨
             </div>
 
+
             <div class="timeline-content">
 
                 <span class="timeline-date">
                     The Beginning of Us
                 </span>
 
-                <h3>A New Chapter</h3>
+
+                <h3>
+                    A New Chapter
+                </h3>
+
 
                 <p>
                     Two people starting something new,
@@ -402,6 +670,7 @@
         </div>
 
 
+
         <!-- EVENT 3 -->
 
         <div class="timeline-item">
@@ -410,22 +679,29 @@
                 🥰
             </div>
 
+
             <div class="timeline-content">
 
                 <span class="timeline-date">
                     Getting to Know You
                 </span>
 
-                <h3>The Little Things</h3>
+
+                <h3>
+                    The Little Things
+                </h3>
+
 
                 <p>
                     Easiest part of our story, maybe because I really love you.
-                    But also the hardest, because sometimes, It's the reason I hurt you.
+                    But also the hardest, because sometimes,
+                    It's the reason I hurt you.
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- EVENT 4 -->
@@ -436,13 +712,18 @@
                 🌷
             </div>
 
+
             <div class="timeline-content">
 
                 <span class="timeline-date">
                     Growing Together
                 </span>
 
-                <h3>More Laughs, More Memories</h3>
+
+                <h3>
+                    More Laughs, More Memories
+                </h3>
+
 
                 <p>
                     Every conversation, every laugh,
@@ -455,6 +736,7 @@
         </div>
 
 
+
         <!-- EVENT 5 -->
 
         <div class="timeline-item">
@@ -463,48 +745,65 @@
                 💜
             </div>
 
+
             <div class="timeline-content">
 
                 <span class="timeline-date">
                     Today
                 </span>
 
-                <h3>Still Writing Our Story</h3>
+
+                <h3>
+                    Still Writing Our Story
+                </h3>
+
 
                 <p>
                     We've already made so many memories,
-                    but I know this is only the beginning, my pagmamahal!
+                    but I know this is only the beginning,
+                    my pagmamahal!
                 </p>
 
             </div>
 
         </div>
 
-
     </div>
 
 </section>
 
-    <!-- ==================== -->
-    <!-- MEMORIES -->
-    <!-- ==================== -->
+
+
+<!-- =========================================================
+     MEMORIES
+========================================================= -->
 
 <section class="memories" id="memories">
 
-    <h2>Our Memories 📸</h2>
+    <h2>
+        Our Memories 📸
+    </h2>
+
 
     <p class="section-intro">
         A few moments that I will always keep close to my heart. 💜
     </p>
 
+
     <div class="memory-container">
 
-        <!-- Memory 1 -->
+
+        <!-- MEMORY 1 -->
+
         <div class="memory">
 
-            <img src="images/photo1.jpg" alt="Our first memory">
+            <img
+                src="images/photo1.jpg"
+                alt="Our beginning">
 
-            <h3>Our Beginning</h3>
+            <h3>
+                Our Beginning
+            </h3>
 
             <p>
                 This is one of the moments that
@@ -514,27 +813,40 @@
         </div>
 
 
-        <!-- Memory 2 -->
+
+        <!-- MEMORY 2 -->
+
         <div class="memory">
 
-            <img src="images/photo2.jpg" alt="Our favorite memory">
+            <img
+                src="images/photo2.jpg"
+                alt="One of my favorite memories">
 
-            <h3>One of My Favorites</h3>
+            <h3>
+                One of My Favorites
+            </h3>
 
             <p>
                 A simple moment, but one that
-                became special because I was with you.
+                became special because I was with you
+                kahit nakahiga lang sa sahig.
             </p>
 
         </div>
 
 
-        <!-- Memory 3 -->
+
+        <!-- MEMORY 3 -->
+
         <div class="memory">
 
-            <img src="images/photo3.jpg" alt="Another memory together">
+            <img
+                src="images/photo3.jpg"
+                alt="Our first date">
 
-            <h3>Our First Date</h3>
+            <h3>
+                Our First Date
+            </h3>
 
             <p>
                 Another little piece of our story
@@ -543,36 +855,291 @@
 
         </div>
 
+
+
+        <!-- MEMORY 4 -->
+
+        <div class="memory">
+
+            <img
+                src="images/photo5.jpg"
+                alt="Our first photo booth">
+
+            <h3>
+                First Photo booth
+            </h3>
+
+            <p>
+                Actually 2nd na to, but this time
+                may something na hihi tapos may extra pa HAHAHAHA!
+            </p>
+
+        </div>
+
+
+
+        <!-- MEMORY 5 -->
+
+        <div class="memory">
+
+            <img
+                src="images/photo4.jpg"
+                alt="A happy moment together">
+
+            <h3>
+                The Sweetest One
+            </h3>
+
+            <p>
+                Moments like this make me grateful
+                kasi kahit malayo me ay pinupuntahan mo pa rin ako.
+            </p>
+
+        </div>
+
+
+
+        <!-- MEMORY 6 -->
+
+        <div class="memory">
+
+            <img
+                src="images/photo6.jpg"
+                alt="A special moment together">
+
+            <h3>
+                Pinaka Favorite
+            </h3>
+
+            <p>
+                Para tayong ikakasal nento kaya pinaka favorite ko.
+            </p>
+
+        </div>
+
+
+
+        <!-- VIDEO 1 -->
+
+        <div class="memory memory-video">
+
+            <video
+                class="memory-media"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Late night walk memory">
+
+                <source
+                    src="videos/video1.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+
+            <h3>
+                Randon Late Night Walk?
+            </h3>
+
+
+            <p>
+                Kunwari bibili lang ng burger pero crush na pala ako, eme.
+                Gusto kasabay maglakad yan?
+            </p>
+
+        </div>
+
+
+
+        <!-- VIDEO 2 -->
+
+        <div class="memory memory-video">
+
+            <video
+                class="memory-media"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Papansin memory">
+
+                <source
+                    src="videos/video2.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+
+            <h3>
+                Papansin Sa Akin?
+            </h3>
+
+
+            <p>
+                Kunwari magsusumbong lang
+                pero yung totoo nagpapapansin lang sa akin.
+            </p>
+
+        </div>
+
+
+
+        <!-- VIDEO 3 -->
+
+        <div class="memory memory-video">
+
+            <video
+                class="memory-media"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Simba day memory">
+
+                <source
+                    src="videos/video3.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+
+            <h3>
+                Simba Day
+            </h3>
+
+
+            <p>
+                Kala ko po ba magsisimba?
+                Pero bakit mo po ako vinivideohan? 😭
+            </p>
+
+        </div>
+
+
+
+        <!-- VIDEO 4 -->
+
+        <div class="memory memory-video">
+
+            <video
+                class="memory-media"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Special reconnection memory">
+
+                <source
+                    src="videos/video4.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+
+            <h3>
+                Best Thing Happened I Guess?
+            </h3>
+
+
+            <p>
+                Another memory that makes me smile every time
+                I look back at it because dito bumalik yung lahat after ng
+                mahabang walang communication.
+            </p>
+
+        </div>
+
+
+
+        <!-- VIDEO 5 -->
+
+        <div class="memory memory-video">
+
+            <video
+                class="memory-media"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="I love you memory">
+
+                <source
+                    src="videos/video5.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+
+            <h3>
+                I Love You!
+            </h3>
+
+
+            <p>
+                But to be honest, I really, really, really loved you from the very beginning.
+                I just make it di halata kasi I'm shy and I thought I don't have a chance with you.
+                And I think that yung pag amin sayo was the best decision I made in my life.
+            </p>
+
+        </div>
+
+
     </div>
 
 </section>
 
 
- <!-- ==================== -->
-<!-- REASONS I LOVE YOU -->
-<!-- ==================== -->
+
+<!-- =========================================================
+     REASONS I LOVE YOU
+========================================================= -->
 
 <section class="reasons" id="reasons">
 
-    <h2>Reasons Why I Love You</h2>
+    <h2>
+        Reasons Why I Love You
+    </h2>
+
 
     <p class="section-intro">
         I could probably write a thousand reasons,
         but here are a few of them.
     </p>
 
+
     <div class="reason-list">
 
+
         <!-- REASON 1 -->
-        <div class="reason-card" onclick="showReason(1)">
 
-            <span class="reason-number">01</span>
+        <div
+            class="reason-card"
+            onclick="showReason(1)">
 
-            <h3>Your Smile</h3>
+            <span class="reason-number">
+                01
+            </span>
 
-            <p class="click-text">Click to reveal</p>
 
-            <div class="reason-message" id="reason1">
+            <h3>
+                Your Smile
+            </h3>
+
+
+            <p class="click-text">
+                Click to reveal
+            </p>
+
+
+            <div
+                class="reason-message"
+                id="reason1">
 
                 Your smile is one of those little things
                 that can instantly make my day better.
@@ -582,16 +1149,31 @@
         </div>
 
 
+
         <!-- REASON 2 -->
-        <div class="reason-card" onclick="showReason(2)">
 
-            <span class="reason-number">02</span>
+        <div
+            class="reason-card"
+            onclick="showReason(2)">
 
-            <h3>The Way You Laugh</h3>
+            <span class="reason-number">
+                02
+            </span>
 
-            <p class="click-text">Click to reveal</p>
 
-            <div class="reason-message" id="reason2">
+            <h3>
+                The Way You Laugh
+            </h3>
+
+
+            <p class="click-text">
+                Click to reveal
+            </p>
+
+
+            <div
+                class="reason-message"
+                id="reason2">
 
                 I love hearing you laugh.
                 It is honestly one of my favorite sounds.
@@ -602,16 +1184,31 @@
         </div>
 
 
+
         <!-- REASON 3 -->
-        <div class="reason-card" onclick="showReason(3)">
 
-            <span class="reason-number">03</span>
+        <div
+            class="reason-card"
+            onclick="showReason(3)">
 
-            <h3>The Way You Care</h3>
+            <span class="reason-number">
+                03
+            </span>
 
-            <p class="click-text">Click to reveal</p>
 
-            <div class="reason-message" id="reason3">
+            <h3>
+                The Way You Care
+            </h3>
+
+
+            <p class="click-text">
+                Click to reveal
+            </p>
+
+
+            <div
+                class="reason-message"
+                id="reason3">
 
                 You have a way of making people around you
                 feel loved, appreciated, and cared for.
@@ -621,16 +1218,31 @@
         </div>
 
 
+
         <!-- REASON 4 -->
-        <div class="reason-card" onclick="showReason(4)">
 
-            <span class="reason-number">04</span>
+        <div
+            class="reason-card"
+            onclick="showReason(4)">
 
-            <h3>Every Little Things You Do</h3>
+            <span class="reason-number">
+                04
+            </span>
 
-            <p class="click-text">Click to reveal</p>
 
-            <div class="reason-message" id="reason4">
+            <h3>
+                Every Little Things You Do
+            </h3>
+
+
+            <p class="click-text">
+                Click to reveal
+            </p>
+
+
+            <div
+                class="reason-message"
+                id="reason4">
 
                 Even an ordinary day can become special
                 just because I get to spend it with you.
@@ -640,16 +1252,31 @@
         </div>
 
 
+
         <!-- REASON 5 -->
-        <div class="reason-card" onclick="showReason(5)">
 
-            <span class="reason-number">05</span>
+        <div
+            class="reason-card"
+            onclick="showReason(5)">
 
-            <h3>You're You</h3>
+            <span class="reason-number">
+                05
+            </span>
 
-            <p class="click-text">Click to reveal</p>
 
-            <div class="reason-message" id="reason5">
+            <h3>
+                You're You
+            </h3>
+
+
+            <p class="click-text">
+                Click to reveal
+            </p>
+
+
+            <div
+                class="reason-message"
+                id="reason5">
 
                 And honestly, the biggest reason is simply
                 because you are you. I wouldn't change that.
@@ -663,19 +1290,411 @@
 
 </section>
 
-<!-- ==================== -->
-<!-- FINAL LOVE SURPRISE -->
-<!-- ==================== -->
 
-<section class="love-counter" id="love">
+
+<!-- =========================================================
+     RELATIONSHIP STATS
+========================================================= -->
+
+<section
+    class="relationship-stats"
+    id="stats">
+
+    <h2>
+        Our Relationship in Numbers 
+    </h2>
+
+
+    <p class="section-intro">
+        Some things are impossible to measure...
+        but I tried anyway.
+    </p>
+
+
+    <div class="stats-dashboard">
+
+
+        <!-- STAT 1 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                💜
+            </span>
+
+
+            <span
+                class="stat-value"
+                id="statsDays">
+
+                0
+
+            </span>
+
+
+            <span class="stat-label">
+                Days Together
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 2 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                ❤️
+            </span>
+
+
+            <span class="stat-value">
+                ∞
+            </span>
+
+
+            <span class="stat-label">
+                Times I Love You
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 3 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🥰
+            </span>
+
+
+            <span class="stat-value">
+                ∞
+            </span>
+
+
+            <span class="stat-label">
+                Smiles You've Given Me
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 4 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                😂
+            </span>
+
+
+            <span class="stat-value">
+                999+
+            </span>
+
+
+            <span class="stat-label">
+                Laughs Together
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 5 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                📸
+            </span>
+
+
+            <span class="stat-value">
+                Marami Na Pero Dadamihan Pa
+            </span>
+
+
+            <span class="stat-label">
+                Memories Made
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 6 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🎵
+            </span>
+
+
+            <span class="stat-value">
+                7
+            </span>
+
+
+            <span class="stat-label">
+                Songs That Remind Me of You
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 7 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🥺
+            </span>
+
+
+            <span class="stat-value">
+                Every Day, Every Hour, Every Minute
+            </span>
+
+
+            <span class="stat-label">
+                Times I Missed You
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 8 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🤗
+            </span>
+
+
+            <span class="stat-value">
+                ∞
+            </span>
+
+
+            <span class="stat-label">
+                Hugs I Still Owe You
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 9 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                😤
+            </span>
+
+
+            <span class="stat-value">
+                Still Here
+            </span>
+
+
+            <span class="stat-label">
+                Arguments Survived
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 10 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                ✈️
+            </span>
+
+
+            <span class="stat-value">
+                Sobrang Dami
+            </span>
+
+
+            <span class="stat-label">
+                Places We Want to Visit
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 11 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🍽️
+            </span>
+
+
+            <span class="stat-value">
+                ∞
+            </span>
+
+
+            <span class="stat-label">
+                Future Dates
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 12 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                💭
+            </span>
+
+
+            <span class="stat-value">
+                Countless
+            </span>
+
+
+            <span class="stat-label">
+                Thoughts About You
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 13 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                🌎
+            </span>
+
+
+            <span class="stat-value">
+                Loading...
+            </span>
+
+
+            <span class="stat-label">
+                Adventures Waiting For Us
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 14 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                💍
+            </span>
+
+
+            <span class="stat-value">
+                1
+            </span>
+
+
+            <span class="stat-label">
+                Person I Want Beside Me
+            </span>
+
+        </div>
+
+
+
+        <!-- STAT 15 -->
+
+        <div class="stat-card">
+
+            <span class="stat-icon">
+                ⏻
+            </span>
+
+
+            <span class="stat-value">
+                NEVER
+            </span>
+
+
+            <span class="stat-label">
+                Shutdown
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL STATS MESSAGE -->
+
+    <div class="stats-footer">
+
+        <div class="stats-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                RELATIONSHIP STATUS:
+                <strong>RUNNING</strong>
+            </span>
+
+        </div>
+
+
+        <p>
+            Still in love with each other. 
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL LOVE SURPRISE
+========================================================= -->
+
+<section
+    class="love-counter"
+    id="love">
 
     <div class="final-love-content">
 
-        <h2>How Much Do I Love You? </h2>
+
+        <h2>
+            How Much Do I Love You?
+        </h2>
+
 
         <p class="love-intro">
             I don't think any number could really measure it...
         </p>
+
 
 
         <!-- LOVE METER -->
@@ -683,21 +1702,32 @@
         <div class="love-meter">
 
             <div class="love-bar">
+
                 <div id="loveFill"></div>
+
             </div>
 
+
             <div class="love-percent">
-                <span id="lovePercent">0</span>%
+
+                <span id="lovePercent">
+                    0
+                </span>
+
+                %
+
             </div>
 
         </div>
 
 
+
         <!-- BUTTON -->
 
         <button id="loveButton">
-            Add More Love 
+            Add More Love
         </button>
+
 
 
         <!-- NORMAL MESSAGE -->
@@ -707,61 +1737,102 @@
         </p>
 
 
+
         <!-- FINAL SURPRISE -->
 
-        <div class="final-surprise" id="finalSurprise">
+        <div
+            class="final-surprise"
+            id="finalSurprise">
 
-            <button class="final-close" id="finalClose" aria-label="Close final message">
-            ×
+
+            <!-- CLOSE BUTTON -->
+
+            <button
+                class="final-close"
+                id="finalClose"
+                aria-label="Close final message">
+
+                ×
+
             </button>
+
 
             <div class="big-heart">
                 💜
             </div>
 
-            <h3>There's No Limit</h3>
+
+            <h3>
+                There's No Limit
+            </h3>
+
 
             <p>
                 100% isn't nearly enough to measure
                 how much I love you.
             </p>
 
+
             <p>
                 So maybe I shouldn't have put a limit
                 on the meter in the first place.
             </p>
 
+
             <div class="final-divider">
                 ✦ ✦ ✦
             </div>
 
-            <h3>Happy Anniversary, Pagmamahal! </h3>
+
+            <h3>
+                Happy Anniversary, Pagmamahal!
+            </h3>
+
 
             <p>
                 Thank you for being one of the most
                 beautiful parts of my life.
             </p>
 
+
             <p>
-                We've already made so many memories, I am also grateful din na kahit 'di lang puro saya, 
-                na kahit minsan may tampuhan, away, 'di pagkakaintindihan', at selos ay pinipili pa rin natin ang bawat isa.
-                I want you to be the most happiest girl in the world, and I will do my best to make sure happens.
-                Wala man ako ngayon, sisikapin ko namang umahon, hanggang sa mabibili na natin lahat ng gusto natin.
-                Darating din yung araw na hindi na tayo mamomroblema sa pera, makakapag travel rin tayo, at makakain yung lahat ng gusto.
-                Sana hindi ka po magsawa at mapagod, hanggang yung soon natin ay maging finally na.
-                Ngayon naaalala ko rin yung kanta ni Esremborak na Mahal Magmahal, narealized ko na kaya siguro 
-                love in tagalog is "mahal", and expensive is also "mahal", kasi love is never meant to be cheap.
-                I hope this is only the beginning
-                of everything that's still waiting for us.
+                We've already made so many memories,
+                I am also grateful din na kahit 'di lang puro saya,
+                na kahit minsan may tampuhan, away,
+                'di pagkakaintindihan', at selos ay pinipili pa rin natin
+                ang bawat isa.
+
+                I want you to be the most happiest girl in the world,
+                and I will do my best to make sure that happens.
+
+                Wala man ako ngayon, sisikapin ko namang umahon,
+                hanggang sa mabibili na natin lahat ng gusto natin.
+
+                Darating din yung araw na hindi na tayo mamomroblema sa pera,
+                makakapag travel rin tayo, at makakain yung lahat ng gusto.
+
+                Sana hindi ka po magsawa at mapagod,
+                hanggang yung soon natin ay maging finally na.
+
+                Ngayon naaalala ko rin yung kanta ni Esremborak na
+                Mahal Magmahal, narealized ko na tama yung nabasa ko na kaya siguro
+                love in tagalog is "mahal", and expensive is also "mahal",
+                kasi love is never meant to be cheap.
+
+                I hope you like my website gift for you. This is only the beginning of all the
+                beautiful things that are still waiting for us.
             </p>
+
 
             <p class="final-message">
                 I love you, always. 💜
             </p>
 
+
             <p class="final-signature">
                 — Charles
             </p>
+
 
         </div>
 
@@ -769,7 +1840,12 @@
 
 </section>
 
+
+
+<!-- JAVASCRIPT -->
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
