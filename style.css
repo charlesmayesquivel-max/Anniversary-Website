@@ -3679,91 +3679,140 @@ button:active {
             100px 18px;
     }
 
-    .timeline {
+.timeline {
 
-        padding-left:
-            82px;
+    padding-left:
+        0;
 
-        padding-right:
-            2px;
-    }
+    padding-right:
+        0;
 
-    .timeline::before {
+    width:
+        100%;
 
-        left:
-            30px;
-    }
-
-    .timeline-item {
-
-        min-height:
-            auto;
-
-        margin-bottom:
-            35px;
-
-        display:
-            block;
-    }
-
-    .timeline-dot {
-
-        width:
-            50px;
-
-        height:
-            50px;
-
-        left:
-            30px;
-
-        top:
-            25px;
-
-        transform:
-            translate(-50%, 0);
-
-        font-size:
-            20px;
-    }
-
-    .timeline-content {
-
-        position:
-            relative;
-
-        top:
-            auto;
-
-        left:
-            auto !important;
-
-        right:
-            auto !important;
-
-        transform:
-            none;
-
-        width:
-            100%;
-
-        min-width:
-            0;
-
-        text-align:
-            left !important;
-
-        padding:
-            23px 20px;
-    }
-
-    .stats-dashboard {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+    position:
+        relative;
 }
 
+.timeline::before {
+
+    left:
+        25px;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    transform:
+        none;
+}
+
+.timeline-item {
+
+    min-height:
+        auto;
+
+    margin-bottom:
+        35px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        50px minmax(0, 1fr);
+
+    column-gap:
+        18px;
+
+    align-items:
+        start;
+
+    position:
+        relative;
+}
+
+.timeline-dot {
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    position:
+        relative;
+
+    left:
+        auto;
+
+    top:
+        auto;
+
+    transform:
+        none;
+
+    grid-column:
+        1;
+
+    grid-row:
+        1;
+
+    z-index:
+        3;
+
+    font-size:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+.timeline-content {
+
+    position:
+        relative;
+
+    top:
+        auto;
+
+    left:
+        auto !important;
+
+    right:
+        auto !important;
+
+    transform:
+        none;
+
+    width:
+        auto;
+
+    min-width:
+        0;
+
+    grid-column:
+        2;
+
+    grid-row:
+        1;
+
+    text-align:
+        left !important;
+
+    padding:
+        23px 20px;
+
+    overflow-wrap:
+        break-word;
+}
 
 /* =========================================================
    RESPONSIVE — MOBILE
